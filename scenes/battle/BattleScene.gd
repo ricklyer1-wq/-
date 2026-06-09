@@ -525,28 +525,28 @@ func _build_player_section() -> Control:
 	_player_hud_frame_rect.add_child(_player_name_label)
 
 	# Realm Label (e.g. "築基後期") inside the top-right purple status frame
-	var realm_label := _make_battle_info_label(18, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	var realm_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	realm_label.text = "築基後期"
 	_place_control(realm_label, 197, 10, 398, 49)
 	realm_label.z_index = 4
 	_player_hud_frame_rect.add_child(realm_label)
 
 	# HP numeric label
-	_player_hp_value_label = _make_battle_info_label(18, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_player_hp_value_label = _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	_player_hp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	_place_control(_player_hp_value_label, 65, 71, 421, 94)
 	_player_hp_value_label.z_index = 5
 	_player_hud_frame_rect.add_child(_player_hp_value_label)
 
 	# Block numeric label, overlaying on the right of the shield icon (Shield is at X=438 to 471)
-	_player_block_value_label = _make_battle_info_label(20, UI_SHIELD_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
+	_player_block_value_label = _make_battle_info_label(24, UI_SHIELD_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
 	_player_block_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	_place_control(_player_block_value_label, 476, 63, 536, 100)
 	_player_block_value_label.z_index = 5
 	_player_hud_frame_rect.add_child(_player_block_value_label)
 
 	# Qi / Energy numeric label
-	_player_energy_value_label = _make_battle_info_label(18, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_player_energy_value_label = _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	_player_energy_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	_place_control(_player_energy_value_label, 46, 114, 544, 136)
 	_player_energy_value_label.z_index = 5
@@ -559,18 +559,18 @@ func _build_player_section() -> Control:
 	_player_status_label.visible = false
 	_player_hud_frame_rect.add_child(_player_status_label)
 
-	# Player status icons - placed neatly in the empty area below the Qi bar
+	# Player status icons - placed neatly in the empty area below the Qi bar, shifted right to avoid avatar
 	_player_status_icons = HBoxContainer.new()
 	_player_status_icons.alignment = BoxContainer.ALIGNMENT_BEGIN
 	_player_status_icons.add_theme_constant_override("separation", 18)
 	_player_status_icons.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_place_control(_player_status_icons, 46, 142, 544, 182)
+	_place_control(_player_status_icons, 240, 142, 600, 182)
 	_player_status_icons.z_index = 4
 	_player_hud_frame_rect.add_child(_player_status_icons)
 
 	# Unused energy label reference
 	_energy_label = _make_battle_info_label(20, UI_ENERGY_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
-	_place_control(_energy_label, 190, 142, 544, 182)
+	_place_control(_energy_label, 250, 142, 600, 182)
 	_energy_label.visible = false
 	_player_hud_frame_rect.add_child(_energy_label)
 
@@ -616,9 +616,10 @@ func _build_action_button_row() -> Control:
 	_draw_button.pressed.connect(func():
 		_show_pile_dialog("抽牌堆", _deck.draw_pile)
 	)
-	var draw_label := _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	# Draw pile count label positioned inside the top-right circular bubble frame
+	var draw_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	draw_label.name = "CountLabel"
-	_place_control(draw_label, 0, 24, 104, 54)
+	_place_control(draw_label, 64, 4, 96, 36)
 	_draw_button.add_child(draw_label)
 	row.add_child(_draw_button)
 
@@ -627,9 +628,10 @@ func _build_action_button_row() -> Control:
 	_discard_button.pressed.connect(func():
 		_show_pile_dialog("棄牌堆", _deck.discard_pile)
 	)
-	var discard_label := _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	# Discard pile count label positioned inside the top-right circular bubble frame
+	var discard_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	discard_label.name = "CountLabel"
-	_place_control(discard_label, 0, 24, 104, 54)
+	_place_control(discard_label, 56, 0, 88, 32)
 	_discard_button.add_child(discard_label)
 	row.add_child(_discard_button)
 
@@ -638,9 +640,10 @@ func _build_action_button_row() -> Control:
 	_exhaust_button.pressed.connect(func():
 		_show_pile_dialog("消耗區", _deck.exhaust_pile)
 	)
-	var exhaust_label := _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	# Exhaust pile count label positioned inside the top-right circular bubble frame
+	var exhaust_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	exhaust_label.name = "CountLabel"
-	_place_control(exhaust_label, 0, 24, 104, 54)
+	_place_control(exhaust_label, 67, 2, 99, 34)
 	_exhaust_button.add_child(exhaust_label)
 	row.add_child(_exhaust_button)
 	return row

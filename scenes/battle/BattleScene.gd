@@ -133,8 +133,7 @@ var _player_art_rect: TextureRect
 var _enemy_art_rect: TextureRect
 var _player_avatar_rect: TextureRect
 var _pile_buttons_art: TextureRect
-var _player_hp_bar_rect: ColorRect
-var _player_energy_bar_rect: ColorRect
+
 var _player_hp_value_label: Label
 var _player_block_value_label: Label
 var _player_energy_value_label: Label
@@ -510,12 +509,12 @@ func _build_player_section() -> Control:
 	realm_label.z_index = 4
 	section.add_child(realm_label)
 
-	# HP bar (vibrant red progress bar on top of the background slot)
-	_player_hp_bar_rect = ColorRect.new()
-	_player_hp_bar_rect.color = Color(0.83, 0.18, 0.18, 0.86) # Vibrant red with slight transparency
-	_place_control(_player_hp_bar_rect, PLAYER_HP_BAR_X_START, 85, PLAYER_HP_BAR_X_START + PLAYER_HP_BAR_WIDTH, 113)
-	_player_hp_bar_rect.z_index = 4
-	section.add_child(_player_hp_bar_rect)
+	# Load the shader and assign it as material
+	var hud_shader := load("res://scenes/battle/player_hud.gdshader")
+	if hud_shader:
+		var mat := ShaderMaterial.new()
+		mat.shader = hud_shader
+		_player_hud_frame_rect.material = mat
 
 	# HP numeric label
 	_player_hp_value_label = _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
@@ -529,13 +528,6 @@ func _build_player_section() -> Control:
 	_place_control(_player_block_value_label, 524, 75, 563, 119)
 	_player_block_value_label.z_index = 5
 	section.add_child(_player_block_value_label)
-
-	# Qi / Energy bar (vibrant blue progress bar on top of the background slot)
-	_player_energy_bar_rect = ColorRect.new()
-	_player_energy_bar_rect.color = Color(0.1, 0.46, 0.82, 0.86) # Vibrant blue with slight transparency
-	_place_control(_player_energy_bar_rect, PLAYER_ENERGY_BAR_X_START, 136, PLAYER_ENERGY_BAR_X_START + PLAYER_ENERGY_BAR_WIDTH, 163)
-	_player_energy_bar_rect.z_index = 4
-	section.add_child(_player_energy_bar_rect)
 
 	# Qi / Energy numeric label
 	_player_energy_value_label = _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
@@ -595,14 +587,7 @@ func _build_state_buttons_anchor() -> Control:
 	return _state_buttons_anchor
 
 
-func _set_bar_progress(bar_rect: ColorRect, x_start: float, full_width: float, ratio: float) -> void:
-	if bar_rect == null:
-		return
-	var clamped_ratio := clampf(ratio, 0.0, 1.0)
-	var visible_width := full_width * clamped_ratio
-	bar_rect.size.x = visible_width
-	bar_rect.offset_left = x_start
-	bar_rect.offset_right = x_start + visible_width
+
 
 
 func _build_action_button_row() -> Control:
@@ -1386,18 +1371,10 @@ func _refresh_battle_ui() -> void:
 	if _player_energy_value_label != null:
 		_player_energy_value_label.text = "%d / %d" % [_player_energy, _player_max_energy]
 		_apply_readable_label(_player_energy_value_label, UI_PRIMARY_TEXT)
-	_set_bar_progress(
-		_player_hp_bar_rect,
-		PLAYER_HP_BAR_X_START,
-		PLAYER_HP_BAR_WIDTH,
-		float(_player_hp) / maxf(1.0, float(_player_max_hp))
-	)
-	_set_bar_progress(
-		_player_energy_bar_rect,
-		PLAYER_ENERGY_BAR_X_START,
-		PLAYER_ENERGY_BAR_WIDTH,
-		float(_player_energy) / maxf(1.0, float(_player_max_energy))
-	)
+	if _player_hud_frame_rect != null and _player_hud_frame_rect.material is ShaderMaterial:
+		var mat := _player_hud_frame_rect.material as ShaderMaterial
+		mat.set_shader_parameter("hp_ratio", float(_player_hp) / maxf(1.0, float(_player_max_hp)))
+		mat.set_shader_parameter("qi_ratio", float(_player_energy) / maxf(1.0, float(_player_max_energy)))
 	_refresh_status_icons(_player_status_icons, _status_manager.player_statuses, 3)
 	if _energy_label != null:
 		_energy_label.text = ""

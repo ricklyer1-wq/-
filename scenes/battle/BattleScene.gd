@@ -510,9 +510,9 @@ func _build_player_section() -> Control:
 	realm_label.z_index = 4
 	section.add_child(realm_label)
 
-	# HP bar cover (covers from right to left when health is lost)
+	# HP bar (vibrant red progress bar on top of the background slot)
 	_player_hp_bar_rect = ColorRect.new()
-	_player_hp_bar_rect.color = Color("#0D0B0A") # Blends with the panel's dark color
+	_player_hp_bar_rect.color = Color(0.83, 0.18, 0.18, 0.86) # Vibrant red with slight transparency
 	_place_control(_player_hp_bar_rect, PLAYER_HP_BAR_X_START, 85, PLAYER_HP_BAR_X_START + PLAYER_HP_BAR_WIDTH, 113)
 	_player_hp_bar_rect.z_index = 4
 	section.add_child(_player_hp_bar_rect)
@@ -530,9 +530,9 @@ func _build_player_section() -> Control:
 	_player_block_value_label.z_index = 5
 	section.add_child(_player_block_value_label)
 
-	# Qi / Energy bar cover (covers from right to left when energy is lost)
+	# Qi / Energy bar (vibrant blue progress bar on top of the background slot)
 	_player_energy_bar_rect = ColorRect.new()
-	_player_energy_bar_rect.color = Color("#0A0909") # Blends with the panel's dark color
+	_player_energy_bar_rect.color = Color(0.1, 0.46, 0.82, 0.86) # Vibrant blue with slight transparency
 	_place_control(_player_energy_bar_rect, PLAYER_ENERGY_BAR_X_START, 136, PLAYER_ENERGY_BAR_X_START + PLAYER_ENERGY_BAR_WIDTH, 163)
 	_player_energy_bar_rect.z_index = 4
 	section.add_child(_player_energy_bar_rect)
@@ -595,14 +595,14 @@ func _build_state_buttons_anchor() -> Control:
 	return _state_buttons_anchor
 
 
-func _set_bar_progress(cover_rect: ColorRect, x_start: float, full_width: float, ratio: float) -> void:
-	if cover_rect == null:
+func _set_bar_progress(bar_rect: ColorRect, x_start: float, full_width: float, ratio: float) -> void:
+	if bar_rect == null:
 		return
 	var clamped_ratio := clampf(ratio, 0.0, 1.0)
-	var covered_width := full_width * (1.0 - clamped_ratio)
-	cover_rect.size.x = covered_width
-	cover_rect.offset_left = x_start + (full_width * clamped_ratio)
-	cover_rect.offset_right = cover_rect.offset_left + covered_width
+	var visible_width := full_width * clamped_ratio
+	bar_rect.size.x = visible_width
+	bar_rect.offset_left = x_start
+	bar_rect.offset_right = x_start + visible_width
 
 
 func _build_action_button_row() -> Control:

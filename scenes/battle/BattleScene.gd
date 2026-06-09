@@ -21,9 +21,11 @@ const BATTLE_UI_ICON_PLAYER_HP := "res://assets/ui/battle/icon_player_hp.png"
 const BATTLE_UI_ICON_PLAYER_BLOCK := "res://assets/ui/battle/icon_player_block.png"
 const BATTLE_UI_ICON_PLAYER_ENERGY := "res://assets/ui/battle/icon_player_energy.png"
 const STATUS_ICON_DIR := "res://assets/ui/status"
-const PLAYER_HP_BAR_WIDTH := 500.0
+const PLAYER_HP_BAR_X_START := 78.0
+const PLAYER_HP_BAR_WIDTH := 426.0
 const PLAYER_HP_BAR_HEIGHT := 28.0
-const PLAYER_ENERGY_BAR_WIDTH := 500.0
+const PLAYER_ENERGY_BAR_X_START := 55.0
+const PLAYER_ENERGY_BAR_WIDTH := 596.0
 const PLAYER_ENERGY_BAR_HEIGHT := 28.0
 
 const UI_PRIMARY_TEXT := Color("#F2EBDD")
@@ -131,9 +133,7 @@ var _player_art_rect: TextureRect
 var _enemy_art_rect: TextureRect
 var _player_avatar_rect: TextureRect
 var _pile_buttons_art: TextureRect
-var _player_hp_bar_clip: Control
 var _player_hp_bar_rect: ColorRect
-var _player_energy_bar_clip: Control
 var _player_energy_bar_rect: ColorRect
 var _player_hp_value_label: Label
 var _player_block_value_label: Label
@@ -214,7 +214,7 @@ func _build_ui() -> void:
 	add_child(hand_section)
 
 	var player_section := _build_player_section()
-	_place_control(player_section, 10, 1588, 704, 1902)
+	_place_control(player_section, 10, 1671, 704, 1902)
 	add_child(player_section)
 
 	var state_buttons := _build_state_buttons_anchor()
@@ -488,114 +488,84 @@ func _build_player_section() -> Control:
 	section.mouse_filter = Control.MOUSE_FILTER_PASS
 	_player_hud_anchor = section
 
-	var avatar_box := Control.new()
-	_place_control(avatar_box, 0, 0, 220, 248)
-	avatar_box.clip_contents = true
-	avatar_box.z_index = 2
-	section.add_child(avatar_box)
-
-	_player_avatar_rect = _build_art_texture(
-		BATTLE_UI_PLAYER_AVATAR,
-		TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	)
-
-	_place_control(_player_avatar_rect, -30, 0, 230, 248)
-	_player_avatar_rect.z_index = 2
-	avatar_box.add_child(_player_avatar_rect)
-	
+	# The main panel background frame
 	_player_hud_frame_rect = _build_art_texture(BATTLE_UI_PANEL_PLAYER_HUD, TextureRect.STRETCH_SCALE)
-	_place_control(_player_hud_frame_rect, 112, 0, 692, 248)
+	_place_control(_player_hud_frame_rect, 0, 0, 694, 231)
 	_player_hud_frame_rect.modulate = Color(1, 1, 1, 1)
 	_player_hud_frame_rect.z_index = 3
 	section.add_child(_player_hud_frame_rect)
 
+	# Name label is hidden since it's already written beautifully on the texture
 	_player_name_label = _make_battle_info_label(34, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
 	_player_name_label.text = "楚玄淵"
-	_place_control(_player_name_label, 180, 28, 310, 90)
+	_place_control(_player_name_label, 0, 0, 10, 10)
 	_player_name_label.z_index = 4
+	_player_name_label.visible = false
 	section.add_child(_player_name_label)
 
-	var realm_label := _make_battle_info_label(30, UI_DEBUFF_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	# Realm Label (e.g. "築基後期") inside the top-right purple status frame
+	var realm_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	realm_label.text = "築基後期"
-	_place_control(realm_label, 317, 28, 515, 90)
+	_place_control(realm_label, 235, 12, 476, 59)
 	realm_label.z_index = 4
 	section.add_child(realm_label)
 
-	var hp_icon := _build_art_texture(BATTLE_UI_ICON_PLAYER_HP, TextureRect.STRETCH_KEEP_ASPECT_CENTERED)
-	_place_control(hp_icon, 135, 88, 175, 128)
-	hp_icon.z_index = 4
-	section.add_child(hp_icon)
-
-	_player_hp_bar_clip = Control.new()
-	_player_hp_bar_clip.clip_contents = true
-	_player_hp_bar_clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_player_hp_bar_clip.z_index = 4
-	_place_control(_player_hp_bar_clip, 173, 94, 673, 122)
-	section.add_child(_player_hp_bar_clip)
-
+	# HP bar cover (covers from right to left when health is lost)
 	_player_hp_bar_rect = ColorRect.new()
-	_player_hp_bar_rect.color = Color("#D32F2F")
-	_place_control(_player_hp_bar_rect, 0, 0, PLAYER_HP_BAR_WIDTH, PLAYER_HP_BAR_HEIGHT)
+	_player_hp_bar_rect.color = Color("#0D0B0A") # Blends with the panel's dark color
+	_place_control(_player_hp_bar_rect, PLAYER_HP_BAR_X_START, 85, PLAYER_HP_BAR_X_START + PLAYER_HP_BAR_WIDTH, 113)
 	_player_hp_bar_rect.z_index = 4
-	_player_hp_bar_clip.add_child(_player_hp_bar_rect)
+	section.add_child(_player_hp_bar_rect)
 
-	_player_hp_value_label = _make_battle_info_label(24, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
-	_player_hp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
-	_place_control(_player_hp_value_label, 0, 0, 500, 24)
+	# HP numeric label
+	_player_hp_value_label = _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_player_hp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_place_control(_player_hp_value_label, PLAYER_HP_BAR_X_START, 85, PLAYER_HP_BAR_X_START + PLAYER_HP_BAR_WIDTH, 113)
 	_player_hp_value_label.z_index = 5
-	_player_hp_bar_clip.add_child(_player_hp_value_label)
+	section.add_child(_player_hp_value_label)
 
-	var block_icon := _build_art_texture(BATTLE_UI_ICON_PLAYER_BLOCK, TextureRect.STRETCH_KEEP_ASPECT_CENTERED)
-	_place_control(block_icon, 680, 94, 708, 122)
-	block_icon.z_index = 4
-	section.add_child(block_icon)
-
-	_player_block_value_label = _make_battle_info_label(22, UI_ENERGY_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
-	_place_control(_player_block_value_label, 710, 94, 770, 122)
+	# Block numeric label, overlaying on the shield icon (X=524 to 563, Y=75 to 119)
+	_player_block_value_label = _make_battle_info_label(22, UI_SHIELD_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_place_control(_player_block_value_label, 524, 75, 563, 119)
 	_player_block_value_label.z_index = 5
 	section.add_child(_player_block_value_label)
 
-	var energy_icon := _build_art_texture(BATTLE_UI_ICON_PLAYER_ENERGY, TextureRect.STRETCH_KEEP_ASPECT_CENTERED)
-	_place_control(energy_icon, 135, 132, 175, 172)
-	energy_icon.z_index = 4
-	section.add_child(energy_icon)
-
-	_player_energy_bar_clip = Control.new()
-	_player_energy_bar_clip.clip_contents = true
-	_player_energy_bar_clip.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_player_energy_bar_clip.z_index = 4
-	_place_control(_player_energy_bar_clip, 173, 138, 673, 166)
-	section.add_child(_player_energy_bar_clip)
-
+	# Qi / Energy bar cover (covers from right to left when energy is lost)
 	_player_energy_bar_rect = ColorRect.new()
-	_player_energy_bar_rect.color = Color("#1976D2")
-	_place_control(_player_energy_bar_rect, 0, 0, PLAYER_ENERGY_BAR_WIDTH, PLAYER_ENERGY_BAR_HEIGHT)
+	_player_energy_bar_rect.color = Color("#0A0909") # Blends with the panel's dark color
+	_place_control(_player_energy_bar_rect, PLAYER_ENERGY_BAR_X_START, 136, PLAYER_ENERGY_BAR_X_START + PLAYER_ENERGY_BAR_WIDTH, 163)
 	_player_energy_bar_rect.z_index = 4
-	_player_energy_bar_clip.add_child(_player_energy_bar_rect)
+	section.add_child(_player_energy_bar_rect)
 
-	_player_energy_value_label = _make_battle_info_label(24, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
-	_place_control(_player_energy_value_label, 0, 0, 500, 24)
-	_player_energy_value_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
+	# Qi / Energy numeric label
+	_player_energy_value_label = _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_player_energy_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_place_control(_player_energy_value_label, PLAYER_ENERGY_BAR_X_START, 136, PLAYER_ENERGY_BAR_X_START + PLAYER_ENERGY_BAR_WIDTH, 163)
 	_player_energy_value_label.z_index = 5
-	_player_energy_bar_clip.add_child(_player_energy_value_label)
+	section.add_child(_player_energy_value_label)
 
+	# Player status label (unused but reference kept)
 	_player_status_label = _make_battle_info_label(20, UI_SECONDARY_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
-	_place_control(_player_status_label, 180, 168, 230, 208)
+	_place_control(_player_status_label, 0, 0, 10, 10)
 	_player_status_label.z_index = 4
 	_player_status_label.visible = false
 	section.add_child(_player_status_label)
 
+	# Player status icons - placed neatly in the empty area below the Qi bar
 	_player_status_icons = HBoxContainer.new()
 	_player_status_icons.alignment = BoxContainer.ALIGNMENT_BEGIN
 	_player_status_icons.add_theme_constant_override("separation", 18)
 	_player_status_icons.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_place_control(_player_status_icons, 180, 168, 600, 208)
+	_place_control(_player_status_icons, 55, 172, 651, 212)
 	_player_status_icons.z_index = 4
 	section.add_child(_player_status_icons)
 
+	# Unused energy label reference
 	_energy_label = _make_battle_info_label(20, UI_ENERGY_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
-	_place_control(_energy_label, 190, 240, 650, 274)
+	_place_control(_energy_label, 190, 212, 650, 230)
+	_energy_label.visible = false
 	section.add_child(_energy_label)
+
 	return section
 
 
@@ -625,12 +595,14 @@ func _build_state_buttons_anchor() -> Control:
 	return _state_buttons_anchor
 
 
-func _set_bar_progress(bar_rect: ColorRect, bar_clip: Control, full_width: float, ratio: float) -> void:
-	if bar_rect == null or bar_clip == null:
+func _set_bar_progress(cover_rect: ColorRect, x_start: float, full_width: float, ratio: float) -> void:
+	if cover_rect == null:
 		return
 	var clamped_ratio := clampf(ratio, 0.0, 1.0)
-	bar_rect.size.x = full_width * clamped_ratio
-	bar_rect.offset_right = bar_rect.offset_left + bar_rect.size.x
+	var covered_width := full_width * (1.0 - clamped_ratio)
+	cover_rect.size.x = covered_width
+	cover_rect.offset_left = x_start + (full_width * clamped_ratio)
+	cover_rect.offset_right = cover_rect.offset_left + covered_width
 
 
 func _build_action_button_row() -> Control:
@@ -1415,12 +1387,14 @@ func _refresh_battle_ui() -> void:
 		_player_energy_value_label.text = "%d / %d" % [_player_energy, _player_max_energy]
 		_apply_readable_label(_player_energy_value_label, UI_PRIMARY_TEXT)
 	_set_bar_progress(
-		_player_hp_bar_rect, _player_hp_bar_clip,
+		_player_hp_bar_rect,
+		PLAYER_HP_BAR_X_START,
 		PLAYER_HP_BAR_WIDTH,
 		float(_player_hp) / maxf(1.0, float(_player_max_hp))
 	)
 	_set_bar_progress(
-		_player_energy_bar_rect, _player_energy_bar_clip,
+		_player_energy_bar_rect,
+		PLAYER_ENERGY_BAR_X_START,
 		PLAYER_ENERGY_BAR_WIDTH,
 		float(_player_energy) / maxf(1.0, float(_player_max_energy))
 	)

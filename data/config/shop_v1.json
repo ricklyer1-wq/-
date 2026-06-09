@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "id": "shop_v1",
+  "purpose": "第一版商店規格。商店先服務戰鬥閉環與卡牌包切換，不做複雜商品刷新。",
+  "scene": "ShopScene",
+  "currency": "gold",
+  "shop_name": "霧中散修攤",
+  "shop_sections": [
+    {
+      "id": "cards",
+      "name": "購買卡牌",
+      "enabled_v1": true
+    },
+    {
+      "id": "remove_card",
+      "name": "移除卡牌",
+      "enabled_v1": true
+    },
+    {
+      "id": "heal",
+      "name": "療傷",
+      "enabled_v1": true
+    },
+    {
+      "id": "card_pack_toggle",
+      "name": "調整本局卡牌包",
+      "enabled_v1": true
+    }
+  ],
+  "prices": {
+    "common_card": 50,
+    "uncommon_card": 75,
+    "rare_card": 120,
+    "remove_card_base": 75,
+    "heal_flat": 40
+  },
+  "heal": {
+    "amount": 15
+  }
+}

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "cangfenggu",
+    "name": "藏鋒谷",
+    "element": "metal",
+    "playable": true,
+    "npc_only": false
+  },
+  {
+    "id": "kumuzhai",
+    "name": "枯木齋",
+    "element": "wood",
+    "playable": true,
+    "npc_only": false
+  },
+  {
+    "id": "xuanbinggong",
+    "name": "玄冰宮",
+    "element": "water",
+    "playable": true,
+    "npc_only": false
+  },
+  {
+    "id": "fentiangu",
+    "name": "焚天谷",
+    "element": "fire",
+    "playable": true,
+    "npc_only": false
+  },
+  {
+    "id": "zhenyuezong",
+    "name": "鎮嶽宗",
+    "element": "earth",
+    "playable": true,
+    "npc_only": false
+  },
+  {
+    "id": "taixuguan",
+    "name": "太虛觀",
+    "element": "soul",
+    "playable": true,
+    "npc_only": false
+  },
+  {
+    "id": "rogue_cultivator",
+    "name": "散修",
+    "element": "mixed",
+    "playable": true,
+    "npc_only": false
+  },
+  {
+    "id": "qianjimen",
+    "name": "千機門",
+    "element": "neutral",
+    "playable": false,
+    "npc_only": false
+  },
+  {
+    "id": "qixuezong",
+    "name": "泣血宗",
+    "element": "blood",
+    "playable": false,
+    "npc_only": true
+  },
+  {
+    "id": "qiansige",
+    "name": "牽絲閣",
+    "element": "puppet",
+    "playable": false,
+    "npc_only": true
+  },
+  {
+    "id": "wangqinggong",
+    "name": "忘情宮",
+    "element": "mind",
+    "playable": false,
+    "npc_only": true
+  }
+]

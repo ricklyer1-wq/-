@@ -1,0 +1,2013 @@
+[
+  {
+    "id": "BAS_001",
+    "name": "基礎吐納",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "獲得 5 點護盾。",
+    "rarity": "BASIC",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "id": "BAS_002",
+    "name": "基礎劍訣",
+    "cost": 1,
+    "type": "attack",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "造成 6 點傷害。",
+    "rarity": "BASIC",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 6
+      }
+    ]
+  },
+  {
+    "id": "BAS_003",
+    "name": "閃避步法",
+    "cost": 0,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "獲得 3 點護盾，抽 1 張牌。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 3
+      },
+      {
+        "op": "draw_cards",
+        "condition": null,
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "BAS_004",
+    "name": "聚氣散",
+    "cost": 0,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "獲得 2 點能量。消耗。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "gain_energy",
+        "condition": null,
+        "target": "self",
+        "amount": 2
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "BAS_005",
+    "name": "破綻百出",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "敵方全體給予 1 層【易傷】(受傷+50%)。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "apply_status",
+        "condition": null,
+        "source_op": "apply_status_all",
+        "target": "enemies",
+        "amount": 1,
+        "status": "vulnerable"
+      }
+    ]
+  },
+  {
+    "id": "BAS_006",
+    "name": "靈氣護盾",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "獲得 6 點護盾。若手牌有攻擊牌，額外獲得 3 點。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": "hand_has_attack",
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 6
+      }
+    ]
+  },
+  {
+    "id": "BAS_007",
+    "name": "飛身托跡",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "抽 2 張牌，捨棄 1 張手牌。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "draw_cards",
+        "condition": null,
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": 2
+      },
+      {
+        "op": "discard_cards",
+        "condition": null,
+        "source_op": "discard",
+        "target": "self",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "BAS_008",
+    "name": "靈石利誘",
+    "cost": 0,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "獲得 1 點能量。本局戰鬥金幣獎勵減少。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "gain_energy",
+        "condition": null,
+        "target": "self",
+        "amount": 1
+      },
+      {
+        "op": "reduce_gold",
+        "condition": null,
+        "amount": 10
+      }
+    ]
+  },
+  {
+    "id": "BAS_009",
+    "name": "便捷小還丹",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "回復 4 點生命值。消耗。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "heal",
+        "condition": null,
+        "amount": 4
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "BAS_010",
+    "name": "強攻訣",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "本回合下一張攻擊卡傷害增加 4 點。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "add_buff",
+        "condition": null,
+        "amount": 4,
+        "status": "next_attack_boost"
+      }
+    ]
+  },
+  {
+    "id": "BAS_011",
+    "name": "神識掃描",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "給予目標 2 層【易傷】與 1 層【虛弱】。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 2,
+        "status": "vulnerable"
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 1,
+        "status": "weak"
+      }
+    ]
+  },
+  {
+    "id": "BAS_012",
+    "name": "蓄勢待發",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "保留至多 2 張手牌至下一回合。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "retain_hand",
+        "condition": null,
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "BAS_013",
+    "name": "破甲針",
+    "cost": 1,
+    "type": "attack",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "造成 5 點傷害。解除目標所有護盾。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "strip_block",
+        "condition": null
+      },
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "id": "BAS_014",
+    "name": "奪路而逃",
+    "cost": 2,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "獲得 12 點護盾，結束你的回合。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 12
+      },
+      {
+        "op": "end_turn",
+        "condition": null
+      }
+    ]
+  },
+  {
+    "id": "BAS_015",
+    "name": "借力打力",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "當前被施加幾層 Debuff，就獲得幾倍的護盾。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "add_block_per_debuff",
+        "condition": null,
+        "multiplier": 4
+      }
+    ]
+  },
+  {
+    "id": "BAS_016",
+    "name": "斂氣術",
+    "cost": 1,
+    "type": "power",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "你的回合結束時，未使用的能量可保留 1 點。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 1,
+        "power": "energy_retain"
+      }
+    ]
+  },
+  {
+    "id": "BAS_017",
+    "name": "大力金剛丸",
+    "cost": 0,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "獲得 10 點護盾。洗入 1 張【丹毒】到抽牌堆。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 10
+      },
+      {
+        "op": "shuffle_card_into_draw_pile",
+        "condition": null,
+        "source_op": "shuffle_into_draw",
+        "card_id": "STS_001"
+      }
+    ]
+  },
+  {
+    "id": "BAS_018",
+    "name": "搜刮戰場",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "從棄牌堆選擇 1 張卡牌加入手牌。消耗。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "discover_from_discard",
+        "condition": null
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "BAS_019",
+    "name": "仙人指路",
+    "cost": 2,
+    "type": "attack",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "造成 14 點傷害。隨機將一張稀有卡加入手牌。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 14
+      },
+      {
+        "op": "add_random_rare_to_hand",
+        "condition": null
+      }
+    ]
+  },
+  {
+    "id": "BAS_020",
+    "name": "天道酬勤",
+    "cost": 2,
+    "type": "power",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "base",
+    "npc_only": false,
+    "description": "回合結束時，保留所有未使用的能量與手牌。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 1,
+        "power": "retain_all"
+      }
+    ]
+  },
+  {
+    "id": "GLD_001",
+    "name": "凝劍訣",
+    "cost": 1,
+    "type": "skill",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "將 2 張【飛劍】洗入抽牌堆。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "shuffle_card_into_draw_pile",
+        "condition": null,
+        "source_op": "shuffle_into_draw",
+        "card_id": "TKN_001",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "GLD_002",
+    "name": "劍氣外放",
+    "cost": 1,
+    "type": "skill",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "獲得 2 層【劍意】(每層使所有攻擊傷害+1)。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 2,
+        "power": "sword_intent"
+      }
+    ]
+  },
+  {
+    "id": "GLD_003",
+    "name": "拔劍術",
+    "cost": 0,
+    "type": "attack",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "造成 5 點傷害。只能作為回合第一張牌打出。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": "first_card_this_turn",
+        "target": "enemy",
+        "amount": 5
+      }
+    ]
+  },
+  {
+    "id": "GLD_004",
+    "name": "疾風劍法",
+    "cost": 1,
+    "type": "attack",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "造成 3 點傷害 2 次。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 3,
+        "times": 2
+      }
+    ]
+  },
+  {
+    "id": "GLD_005",
+    "name": "劍影步",
+    "cost": 1,
+    "type": "skill",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "獲得 5 點護盾。每有一層【劍意】額外+2護盾。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "add_block_per_status",
+        "condition": null,
+        "base": 5,
+        "mult": 2,
+        "status": "sword_intent"
+      }
+    ]
+  },
+  {
+    "id": "GLD_006",
+    "name": "熔劍鑄鐵",
+    "cost": 1,
+    "type": "skill",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "消耗手牌所有【飛劍】，每消耗一張獲得 1 點能量。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "exhaust_type_in_hand",
+        "condition": null,
+        "card_id": "TKN_001",
+        "store_as": "X"
+      },
+      {
+        "op": "gain_energy",
+        "condition": null,
+        "target": "self",
+        "amount": "X"
+      }
+    ]
+  },
+  {
+    "id": "GLD_007",
+    "name": "養劍葫蘆",
+    "cost": 1,
+    "type": "power",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "每當你打出一張 0 耗能的攻擊牌，獲得 1 層【劍意】。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 1,
+        "power": "gourd_synergy"
+      }
+    ]
+  },
+  {
+    "id": "GLD_008",
+    "name": "天外飛仙",
+    "cost": 2,
+    "type": "attack",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "metal",
+    "npc_only": false,
+    "description": "從抽牌與棄牌堆中強制抽回並打出所有【飛劍】。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "play_all_from_decks",
+        "condition": null,
+        "card_id": "TKN_001"
+      }
+    ]
+  },
+  {
+    "id": "WOD_001",
+    "name": "引毒咒",
+    "cost": 1,
+    "type": "skill",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "給予敵人 4 層【中毒】。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 4,
+        "status": "poison"
+      }
+    ]
+  },
+  {
+    "id": "WOD_002",
+    "name": "腐骨掌",
+    "cost": 1,
+    "type": "attack",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "造成 4 點傷害。給予 2 層【中毒】。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 4
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 2,
+        "status": "poison"
+      }
+    ]
+  },
+  {
+    "id": "WOD_003",
+    "name": "青蔓術",
+    "cost": 1,
+    "type": "skill",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "獲得 6 點護盾。將 1 張《毒刺》加入手牌。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 6
+      },
+      {
+        "op": "add_card_to_hand",
+        "condition": null,
+        "source_op": "add_to_hand",
+        "card_id": "WOD_T01",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "WOD_004",
+    "name": "毒刺連擊",
+    "cost": 1,
+    "type": "attack",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "造成 3 點傷害。若目標已中毒，額外附加 3 層【中毒】。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 3
+      },
+      {
+        "op": "apply_status",
+        "condition": "target_has_poison",
+        "target": "enemy",
+        "amount": 3,
+        "status": "poison"
+      }
+    ]
+  },
+  {
+    "id": "WOD_005",
+    "name": "嗜血藤蔓",
+    "cost": 2,
+    "type": "attack",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "造成 10 點傷害。回復未被護盾抵消之真實傷害的一半生命。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "deal_damage_vampire",
+        "condition": null,
+        "amount": 10,
+        "lifesteal_ratio": 0.5
+      }
+    ]
+  },
+  {
+    "id": "WOD_006",
+    "name": "催化劑",
+    "cost": 1,
+    "type": "skill",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "目標敵人每有 5 層【中毒】，額外獲得 3 層【中毒】。消耗。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "apply_status_per_status_threshold",
+        "condition": null,
+        "threshold": 5,
+        "add_amount": 3,
+        "status": "poison"
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "WOD_007",
+    "name": "萬物生長",
+    "cost": 2,
+    "type": "power",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "每當你給予敵人【中毒】狀態時，額外附加 2 層。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 2,
+        "power": "poison_amplifier"
+      }
+    ]
+  },
+  {
+    "id": "WOD_008",
+    "name": "碧落黃泉",
+    "cost": 3,
+    "type": "attack",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "wood",
+    "npc_only": false,
+    "description": "造成敵人身上【中毒】層數 3 倍的真傷。清除其所有中毒。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "deal_true_damage_per_status",
+        "condition": null,
+        "multiplier": 3,
+        "status": "poison"
+      },
+      {
+        "op": "remove_status",
+        "condition": null,
+        "status": "poison"
+      }
+    ]
+  },
+  {
+    "id": "WAT_001",
+    "name": "寒冰錐",
+    "cost": 1,
+    "type": "attack",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "造成 6 點傷害。給予 1 層【冰寒】(每層降低敵方攻擊力 2 點)。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 6
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 1,
+        "status": "chilled"
+      }
+    ]
+  },
+  {
+    "id": "WAT_002",
+    "name": "水流術",
+    "cost": 1,
+    "type": "skill",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "抽 2 張牌。本回合若已打出過水系卡，額外抽 1 張。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "draw_cards",
+        "condition": null,
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": 2
+      },
+      {
+        "op": "draw_cards",
+        "condition": "played_water_this_turn",
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "WAT_003",
+    "name": "驚濤拍岸",
+    "cost": 1,
+    "type": "attack",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "造成 6 點傷害。若本回合已打出 3 張牌或以上，獲得 6 點護盾。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 6
+      },
+      {
+        "op": "gain_block",
+        "condition": "cards_played_ge_3",
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 6
+      }
+    ]
+  },
+  {
+    "id": "WAT_004",
+    "name": "冰封千里",
+    "cost": 2,
+    "type": "skill",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "全體敵人施加 2 層【冰寒】與 1 層【虛弱】。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "apply_status",
+        "condition": null,
+        "source_op": "apply_status_all",
+        "target": "enemies",
+        "amount": 2,
+        "status": "chilled"
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "source_op": "apply_status_all",
+        "target": "enemies",
+        "amount": 1,
+        "status": "weak"
+      }
+    ]
+  },
+  {
+    "id": "WAT_005",
+    "name": "鏡花水月",
+    "cost": 2,
+    "type": "skill",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "獲得 1 層【幻影】(完全免除下一次受到的傷害)。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "apply_status",
+        "condition": null,
+        "source_op": "add_status",
+        "target": "enemy",
+        "amount": 1,
+        "status": "intangible"
+      }
+    ]
+  },
+  {
+    "id": "WAT_006",
+    "name": "化水訣",
+    "cost": 0,
+    "type": "skill",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "捨棄 2 張牌，獲得 2 點能量。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "discard_cards",
+        "condition": null,
+        "source_op": "discard",
+        "target": "self",
+        "amount": 2
+      },
+      {
+        "op": "gain_energy",
+        "condition": null,
+        "target": "self",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "WAT_007",
+    "name": "生生不息",
+    "cost": 2,
+    "type": "power",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "你的回合結束時，若手牌完全為空，強制抽 3 張牌。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 3,
+        "power": "draw_on_empty_hand"
+      }
+    ]
+  },
+  {
+    "id": "WAT_008",
+    "name": "九歌落水",
+    "cost": "X",
+    "type": "attack",
+    "element": "water",
+    "faction": "xuanbinggong",
+    "pool": "water",
+    "npc_only": false,
+    "description": "消耗所有能量。造成 7 點傷害 X 次。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "consume_all_energy",
+        "condition": null,
+        "store_as": "X"
+      },
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 7,
+        "times": "X"
+      }
+    ]
+  },
+  {
+    "id": "FIR_001",
+    "name": "火球術",
+    "cost": 1,
+    "type": "attack",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "造成 8 點傷害，給予 1 層【燃燒】(每回合結束受傷)。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 8
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 1,
+        "status": "burn"
+      }
+    ]
+  },
+  {
+    "id": "FIR_002",
+    "name": "引火燒身",
+    "cost": 0,
+    "type": "skill",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "獲得 2 層【化焰】(每回合受2點傷，火系傷害+3)，抽 2 張牌。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "self",
+        "amount": 2,
+        "status": "flame_body"
+      },
+      {
+        "op": "draw_cards",
+        "condition": null,
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "id": "FIR_003",
+    "name": "炎爆術",
+    "cost": 2,
+    "type": "attack",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "造成 12 點傷害。若你擁有【化焰】，額外造成 12 點傷害，並對自己施加 3 層【燃燒】。消耗。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 12
+      },
+      {
+        "op": "deal_damage",
+        "condition": "self_has_flame_body",
+        "target": "enemy",
+        "amount": 12
+      },
+      {
+        "op": "apply_status",
+        "condition": "self_has_flame_body",
+        "target": "self",
+        "amount": 3,
+        "status": "burn"
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "FIR_004",
+    "name": "烈焰護體",
+    "cost": 1,
+    "type": "skill",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "獲得 7 點護盾。對本回合攻擊你的敵人賦予 2 層【燃燒】。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 7
+      },
+      {
+        "op": "add_buff",
+        "condition": null,
+        "amount": 2,
+        "status": "fire_thorns"
+      }
+    ]
+  },
+  {
+    "id": "FIR_005",
+    "name": "星火燎原",
+    "cost": 2,
+    "type": "attack",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "對全體敵人造成 5 點傷害。引爆所有敵人的【燃燒】。每引爆 1 名敵人，你失去 2 點生命。消耗。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "deal_damage_all",
+        "condition": null,
+        "source_op": "deal_aoe_damage",
+        "target": "enemies",
+        "amount": 5
+      },
+      {
+        "op": "trigger_burn_all",
+        "condition": null,
+        "lose_hp_per_triggered_enemy": 2
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "FIR_006",
+    "name": "焚血訣",
+    "cost": 1,
+    "type": "skill",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "失去 5 點生命值。獲得 3 點能量。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "lose_hp",
+        "condition": null,
+        "amount": 5
+      },
+      {
+        "op": "gain_energy",
+        "condition": null,
+        "target": "self",
+        "amount": 3
+      }
+    ]
+  },
+  {
+    "id": "FIR_007",
+    "name": "紅蓮業火",
+    "cost": 2,
+    "type": "attack",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "將你身上的【化焰】層數全部轉移給全體敵人，並變為【燃燒】。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "get_self_status",
+        "condition": null,
+        "store_as": "X",
+        "status": "flame_body"
+      },
+      {
+        "op": "remove_status",
+        "condition": null,
+        "status": "flame_body"
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "source_op": "apply_status_all",
+        "target": "enemies",
+        "amount": "X",
+        "status": "burn"
+      }
+    ]
+  },
+  {
+    "id": "FIR_008",
+    "name": "涅槃重生",
+    "cost": 3,
+    "type": "power",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "受到致命傷時免疫，消耗所有【化焰】，每層回 5 生命。限1次。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 1,
+        "power": "phoenix_rebirth"
+      }
+    ]
+  },
+  {
+    "id": "FIR_009",
+    "name": "轉焰歸元",
+    "cost": 1,
+    "type": "skill",
+    "element": "fire",
+    "faction": "fentiangu",
+    "pool": "fire",
+    "npc_only": false,
+    "description": "移除自身所有【燃燒】。每移除 1 層【燃燒】，獲得 2 點護盾。若至少移除 3 層【燃燒】，抽 1 張牌。消耗。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "remove_self_status",
+        "condition": null,
+        "store_as": "X",
+        "status": "burn"
+      },
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 2,
+        "multiplier": "X"
+      },
+      {
+        "op": "draw_cards",
+        "condition": "X_gte_3",
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": 1
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "ERT_001",
+    "name": "聚土成山",
+    "cost": 2,
+    "type": "skill",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "獲得 15 點護盾。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 15
+      }
+    ]
+  },
+  {
+    "id": "ERT_002",
+    "name": "飛砂走石",
+    "cost": 1,
+    "type": "attack",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "造成 7 點傷害，獲得 4 點護盾。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 7
+      },
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 4
+      }
+    ]
+  },
+  {
+    "id": "ERT_003",
+    "name": "蠻牛衝撞",
+    "cost": 1,
+    "type": "attack",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "造成 10 點傷害。自身獲得 1 層【易傷】。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 10
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "self",
+        "amount": 1,
+        "status": "vulnerable"
+      }
+    ]
+  },
+  {
+    "id": "ERT_004",
+    "name": "大地脈動",
+    "cost": 2,
+    "type": "power",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "回合結束時，你的護盾值不會減少消失（持續整場戰鬥）。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 1,
+        "power": "barricade"
+      }
+    ]
+  },
+  {
+    "id": "ERT_005",
+    "name": "泰山壓頂",
+    "cost": 2,
+    "type": "attack",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "造成等同於你當前護盾值的物理傷害。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "deal_damage_equal_block",
+        "condition": null
+      }
+    ]
+  },
+  {
+    "id": "ERT_006",
+    "name": "龜息功",
+    "cost": 0,
+    "type": "skill",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "獲得 6 點護盾。下一回合少抽 1 張牌。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 6
+      },
+      {
+        "op": "add_buff",
+        "condition": null,
+        "amount": 1,
+        "status": "draw_reduction_next"
+      }
+    ]
+  },
+  {
+    "id": "ERT_007",
+    "name": "岩石重構",
+    "cost": 1,
+    "type": "skill",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "將你當前的護盾值翻倍。消耗。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "double_current_block",
+        "condition": null
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "ERT_008",
+    "name": "隕石天降",
+    "cost": 3,
+    "type": "attack",
+    "element": "earth",
+    "faction": "zhenyuezong",
+    "pool": "earth",
+    "npc_only": false,
+    "description": "對全體敵人造成 24 點傷害，並施加 2 層【虛弱】。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "deal_damage_all",
+        "condition": null,
+        "source_op": "deal_aoe_damage",
+        "target": "enemies",
+        "amount": 24
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "source_op": "apply_status_all",
+        "target": "enemies",
+        "amount": 2,
+        "status": "weak"
+      }
+    ]
+  },
+  {
+    "id": "SOU_001",
+    "name": "神念刺",
+    "cost": 1,
+    "type": "attack",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "失去 2 點生命。造成 8 點真實傷害（無視護盾）。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "lose_hp",
+        "condition": null,
+        "amount": 2
+      },
+      {
+        "op": "deal_true_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 8
+      }
+    ]
+  },
+  {
+    "id": "SOU_002",
+    "name": "定神術",
+    "cost": 1,
+    "type": "skill",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "給予敵人 2 層【鎖神】(每層使其受到的精神真傷+2)。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 2,
+        "status": "soul_mark"
+      }
+    ]
+  },
+  {
+    "id": "SOU_003",
+    "name": "神識干擾",
+    "cost": 1,
+    "type": "skill",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "獲得 5 點護盾。減少目標 1 點意圖傷害。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 5
+      },
+      {
+        "op": "reduce_intent_damage",
+        "condition": null,
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "SOU_004",
+    "name": "驚魂咒",
+    "cost": 2,
+    "type": "skill",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "使單體敵人下回合的意圖強制變為【發呆】(跳過回合)。消耗。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "change_intent",
+        "condition": null,
+        "target": "enemy",
+        "intent": "stun"
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "SOU_005",
+    "name": "搜魂奪魄",
+    "cost": 1,
+    "type": "skill",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "造成 6 點真傷。若成功擊殺敵人，玩家永久獲得 1 點最大生命值。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "deal_true_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 6
+      },
+      {
+        "op": "increase_max_hp_on_kill",
+        "condition": null,
+        "source_op": "gain_max_hp_on_kill",
+        "target": "self",
+        "amount": 1
+      }
+    ]
+  },
+  {
+    "id": "SOU_006",
+    "name": "奪舍魔音",
+    "cost": 2,
+    "type": "attack",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "造成 10 點真傷。如果目標意圖是「攻擊」，使其攻擊目標變為自己。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "deal_true_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 10
+      },
+      {
+        "op": "redirect_intent_to_self",
+        "condition": "target_intent_is_attack"
+      }
+    ]
+  },
+  {
+    "id": "SOU_007",
+    "name": "神念化盾",
+    "cost": 2,
+    "type": "skill",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "獲得 10 點護盾。若手牌有神魂卡，本回合內所有精神傷害乘以 1.5 倍。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 10
+      },
+      {
+        "op": "buff_soul_damage",
+        "condition": "hand_has_soul",
+        "multiplier": 1.5
+      }
+    ]
+  },
+  {
+    "id": "SOU_008",
+    "name": "神識風暴",
+    "cost": "X",
+    "type": "attack",
+    "element": "soul",
+    "faction": "taixuguan",
+    "pool": "soul",
+    "npc_only": false,
+    "description": "消耗所有能量。每消耗 1 點能量，對全體敵人造成 6 點真實傷害。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "consume_all_energy",
+        "condition": null,
+        "store_as": "X"
+      },
+      {
+        "op": "deal_true_aoe_damage",
+        "condition": null,
+        "amount": 6,
+        "multiplier": "X"
+      }
+    ]
+  },
+  {
+    "id": "WPN_001",
+    "name": "漫天花雨",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "將 3 張【毒鏢】洗入抽牌堆。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "shuffle_card_into_draw_pile",
+        "condition": null,
+        "source_op": "shuffle_into_draw",
+        "card_id": "TKN_002",
+        "amount": 3
+      }
+    ]
+  },
+  {
+    "id": "WPN_002",
+    "name": "藏鋒術",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "捨棄 1 張手牌。獲得 8 點護盾。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "discard_cards",
+        "condition": null,
+        "source_op": "discard",
+        "target": "self",
+        "amount": 1
+      },
+      {
+        "op": "gain_block",
+        "condition": null,
+        "source_op": "add_block",
+        "target": "self",
+        "amount": 8
+      }
+    ]
+  },
+  {
+    "id": "WPN_003",
+    "name": "飛刀突襲",
+    "cost": 1,
+    "type": "attack",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "造成 2 點傷害 3 次。每有一張狀態/衍生卡在手牌，傷害+1。",
+    "rarity": "N",
+    "effects": [
+      {
+        "op": "deal_damage_boost_by_status_cards",
+        "condition": null,
+        "base_damage": 2,
+        "times": 3
+      }
+    ]
+  },
+  {
+    "id": "WPN_004",
+    "name": "淬毒機關",
+    "cost": 1,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "抽 2 張牌。本回合內，你每打出一張 0 費衍生卡，施加 1 層中毒。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "draw_cards",
+        "condition": null,
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": 2
+      },
+      {
+        "op": "add_temporary_buff",
+        "condition": null,
+        "amount": 1,
+        "status": "token_apply_poison"
+      }
+    ]
+  },
+  {
+    "id": "WPN_005",
+    "name": "回旋扇",
+    "cost": 1,
+    "type": "attack",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "造成 7 點傷害。若此卡是被「捨棄」而非被打出，自動放回手牌。",
+    "rarity": "R",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 7
+      },
+      {
+        "op": "return_to_hand_on_discard",
+        "condition": null
+      }
+    ]
+  },
+  {
+    "id": "WPN_006",
+    "name": "袖裡乾坤",
+    "cost": 0,
+    "type": "skill",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "捨棄手牌中所有的狀態與詛咒卡（如丹毒）。每捨棄一張，抽 1 張牌。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "discard_all_type",
+        "condition": null,
+        "type": "Status_or_Curse",
+        "store_as": "X"
+      },
+      {
+        "op": "draw_cards",
+        "condition": null,
+        "source_op": "draw_card",
+        "target": "self",
+        "amount": "X"
+      }
+    ]
+  },
+  {
+    "id": "WPN_007",
+    "name": "暴雨梨花",
+    "cost": 2,
+    "type": "attack",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "造成 4 點傷害。你每有一張棄牌，重複施放此效果一次。",
+    "rarity": "SR",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 4,
+        "repeat_per_discard_count": 1
+      }
+    ]
+  },
+  {
+    "id": "WPN_008",
+    "name": "千機匣",
+    "cost": 2,
+    "type": "power",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "weapon",
+    "npc_only": false,
+    "description": "在本場戰鬥中，每當你因任何卡牌效果而「捨棄」一張牌，隨機對一名敵人造成 4 點傷害。",
+    "rarity": "SSR",
+    "effects": [
+      {
+        "op": "apply_power",
+        "condition": null,
+        "source_op": "add_power",
+        "target": "self",
+        "amount": 4,
+        "power": "damage_on_discard"
+      }
+    ]
+  },
+  {
+    "id": "TKN_001",
+    "name": "飛劍",
+    "cost": 0,
+    "type": "attack",
+    "element": "metal",
+    "faction": "cangfenggu",
+    "pool": "token",
+    "npc_only": false,
+    "description": "造成 3 點傷害。消耗。",
+    "rarity": "TOKEN",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 3
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "WOD_T01",
+    "name": "毒刺",
+    "cost": 0,
+    "type": "attack",
+    "element": "wood",
+    "faction": "kumuzhai",
+    "pool": "token",
+    "npc_only": false,
+    "description": "造成 1 點傷害。給予 1 層【中毒】。消耗。",
+    "rarity": "TOKEN",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 1
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 1,
+        "status": "poison"
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "TKN_002",
+    "name": "毒鏢",
+    "cost": 0,
+    "type": "attack",
+    "element": "neutral",
+    "faction": "qianjimen",
+    "pool": "token",
+    "npc_only": false,
+    "description": "造成 2 點傷害。給予 1 層【中毒】。消耗。",
+    "rarity": "TOKEN",
+    "effects": [
+      {
+        "op": "deal_damage",
+        "condition": null,
+        "target": "enemy",
+        "amount": 2
+      },
+      {
+        "op": "apply_status",
+        "condition": null,
+        "target": "enemy",
+        "amount": 1,
+        "status": "poison"
+      },
+      {
+        "op": "exhaust",
+        "condition": null,
+        "target": "self"
+      }
+    ]
+  },
+  {
+    "id": "STS_001",
+    "name": "丹毒",
+    "cost": 1,
+    "type": "status",
+    "element": "neutral",
+    "faction": "base",
+    "pool": "status",
+    "npc_only": false,
+    "description": "無法被打出。回合結束時若仍在手牌，玩家失去 2 點生命值。",
+    "rarity": "STATUS",
+    "effects": [
+      {
+        "op": "unplayable",
+        "condition": null
+      },
+      {
+        "op": "trigger_on_turn_end_in_hand",
+        "condition": null,
+        "action": "lose_hp",
+        "amount": 2
+      }
+    ]
+  }
+]

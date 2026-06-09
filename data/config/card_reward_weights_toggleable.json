@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0.0",
+  "max_active_card_packs": 2,
+  "default_active_card_packs": ["base", "fire"],
+  "reward_defaults": {
+    "card_choices": 3,
+    "exclude_tags": ["starter", "debug_only", "enemy_only"],
+    "fallback_order": ["requested_pool", "neutral", "main_element", "all_available"],
+    "todo": "rare pity is intentionally not implemented for chapter 01 demo"
+  },
+  "packs": [
+    {
+      "id": "base",
+      "name": "Base",
+      "enabled_by_default": true,
+      "pool_ids": ["base"]
+    },
+    {
+      "id": "fire",
+      "name": "Fire",
+      "enabled_by_default": true,
+      "pool_ids": ["fire"]
+    },
+    {
+      "id": "metal",
+      "name": "Metal",
+      "enabled_by_default": false,
+      "pool_ids": ["metal"]
+    },
+    {
+      "id": "wood",
+      "name": "Wood",
+      "enabled_by_default": false,
+      "pool_ids": ["wood"]
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "enabled_by_default": false,
+      "pool_ids": ["water"]
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "enabled_by_default": false,
+      "pool_ids": ["earth"]
+    },
+    {
+      "id": "soul",
+      "name": "Soul",
+      "enabled_by_default": false,
+      "pool_ids": ["soul"]
+    },
+    {
+      "id": "weapon",
+      "name": "Weapon",
+      "enabled_by_default": false,
+      "pool_ids": ["weapon"]
+    }
+  ],
+  "reward_weights": {
+    "normal_combat": {
+      "BASIC": 0,
+      "N": 70,
+      "R": 24,
+      "SR": 6,
+      "SSR": 0
+    },
+    "elite_combat": {
+      "BASIC": 0,
+      "N": 45,
+      "R": 35,
+      "SR": 16,
+      "SSR": 4
+    },
+    "boss_combat": {
+      "BASIC": 0,
+      "N": 20,
+      "R": 38,
+      "SR": 30,
+      "SSR": 12
+    }
+  }
+  ,
+  "rarity_weights_by_reward_type": {
+    "normal_combat": {
+      "common": 65,
+      "uncommon": 30,
+      "rare": 5
+    },
+    "elite_combat": {
+      "common": 45,
+      "uncommon": 40,
+      "rare": 15
+    },
+    "boss_combat": {
+      "common": 0,
+      "uncommon": 0,
+      "rare": 100
+    }
+  },
+  "pool_weights_by_reward_type": {
+    "normal_combat": {
+      "main_element": 45,
+      "neutral": 25,
+      "related_elements": 20,
+      "random_non_main": 10
+    },
+    "elite_combat": {
+      "main_element": 45,
+      "neutral": 25,
+      "related_elements": 20,
+      "random_non_main": 10
+    },
+    "boss_combat": {
+      "main_element": 55,
+      "neutral": 10,
+      "related_elements": 25,
+      "random_non_main": 10
+    }
+  },
+  "slot_rules": {
+    "enabled": true,
+    "normal_combat": [
+      {"pool_weights": {"main_element": 65, "neutral": 10, "related_elements": 20, "random_non_main": 5}},
+      {"pool_weights": {"main_element": 40, "neutral": 40, "related_elements": 15, "random_non_main": 5}},
+      {"pool_weights": {"main_element": 20, "neutral": 10, "related_elements": 35, "random_non_main": 35}}
+    ],
+    "elite_combat": [
+      {"pool_weights": {"main_element": 65, "neutral": 10, "related_elements": 20, "random_non_main": 5}},
+      {"pool_weights": {"main_element": 40, "neutral": 40, "related_elements": 15, "random_non_main": 5}},
+      {"pool_weights": {"main_element": 20, "neutral": 10, "related_elements": 35, "random_non_main": 35}}
+    ],
+    "boss_combat": [
+      {"pool_weights": {"main_element": 70, "neutral": 5, "related_elements": 20, "random_non_main": 5}},
+      {"pool_weights": {"main_element": 45, "neutral": 20, "related_elements": 30, "random_non_main": 5}},
+      {"pool_weights": {"main_element": 30, "neutral": 5, "related_elements": 35, "random_non_main": 30}}
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+id	name	type	description	stacking
+poison	中毒	debuff	回合持續傷害。	true
+weak	虛弱	debuff	降低造成的攻擊傷害。	true
+vulnerable	易傷	debuff	受到更多攻擊傷害。	true
+strength	力量	power	提高攻擊傷害。	true
+sword_intent	劍意	power	攻擊傷害提高。	true
+chilled	冰寒	debuff	降低敵方攻擊。	true
+intangible	幻影	buff	閃避或抵禦下一次攻擊。	true
+flame_body	化焰	buff	自傷但提高攻擊節奏。	true
+burn	燃燒	debuff	回合結束時受到火焰傷害。	true
+barricade	護盾保留	power	回合結束時護盾不會消失。	false
+poison_amplifier	萬物生長	power	給予中毒時附加額外層數。	true
+draw_on_empty_hand	生生不息	power	回合結束手牌為空時抽牌。	true
+phoenix_rebirth	涅槃重生	power	免疫一次致死傷。	false
+damage_on_discard	千機匣	power	棄牌時對敵人造成傷害。	true
+buff_removed	正面狀態消除	debuff	標記正面狀態被清除。	false

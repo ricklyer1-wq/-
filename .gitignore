@@ -1,0 +1,16 @@
+# Godot-specific ignores
+.godot/
+
+# Log files
+*.log
+godot_execution.log
+run_flow_smoke.log
+ui_inspection.log
+
+# Build/export directories
+build/
+
+# Android export tools and templates (large binaries)
+tools/android-export/
+__pycache__/
+**/__pycache__/

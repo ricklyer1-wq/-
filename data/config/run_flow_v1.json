@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "id": "run_flow_v1",
+  "name": "Run Flow v1",
+  "source_files_required": [
+    "data/generated/cards.json",
+    "data/generated/enemies.json",
+    "data/config/chapter_01.json",
+    "data/config/card_reward_weights_toggleable.json",
+    "data/config/starting_cultivators.json",
+    "data/config/events_chapter_01.json",
+    "data/config/shop_v1.json",
+    "data/config/chapter_01_ending_choices.json"
+  ],
+  "default_chapter_id": "chapter_01",
+  "default_cultivator_id": "fire_cultivator",
+  "node_type_handlers": {
+    "combat": {
+      "scene": "res://scenes/battle/BattleScene.tscn",
+      "after_win": "card_reward",
+      "after_lose": "run_result"
+    },
+    "elite_combat": {
+      "scene": "res://scenes/battle/BattleScene.tscn",
+      "after_win": "card_reward",
+      "after_lose": "run_result"
+    },
+    "story_elite": {
+      "scene": "res://scenes/battle/BattleScene.tscn",
+      "after_win": "card_reward",
+      "after_lose": "run_result"
+    },
+    "boss": {
+      "scene": "res://scenes/battle/BattleScene.tscn",
+      "after_win": "chapter_boss_clear",
+      "after_lose": "run_result"
+    },
+    "event": {
+      "scene": "res://scenes/event/EventScene.tscn",
+      "after_complete": "return_to_map"
+    },
+    "shop": {
+      "scene": "res://scenes/shop/ShopScene.tscn",
+      "after_exit": "return_to_map"
+    },
+    "rest": {
+      "scene": "",
+      "after_exit": "return_to_map"
+    },
+    "treasure": {
+      "scene": "",
+      "after_complete": "return_to_map"
+    }
+  }
+}

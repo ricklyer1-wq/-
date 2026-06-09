@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0.0",
+  "id": "chapter_01",
+  "name": "第一章：靈霧染血",
+  "full_title": "第一章：靈霧染血",
+  "subtitle": "十年一開的靈霧秘境，本是求仙者入門試煉。然而血霧降臨之時，祖傳玉簡第一次真正醒來。",
+  "intro_title": "靈霧秘境",
+  "intro_text": "十年一度的靈霧秘境再度開啟。\n五大宗門於秘境外設下試煉大陣，凡能穿越靈霧、抵達核心祭壇者，皆有機會拜入宗門，踏上長生大道。\n你本是一介散修，無師承、無靠山，只有一枚祖上傳下的殘缺玉簡。\n玉簡沉寂多年，從未顯露異象。\n直到你踏入靈霧的那一刻，它在懷中微微發燙。",
+  "clear_title": "血霧之後",
+  "clear_text": "忘情宮護法終於退入血霧之中。\n秘境陣眼雖然破損，但沒有徹底崩塌。\n片刻後，天穹裂開，五大宗門長老聯手撕開封鎖結界，降臨秘境核心。\n他們看見滿地血跡，也看見站在陣眼前的你。\n一介散修，竟在邪派入侵中活到最後。\n更重要的是，他們感受到了你身上玉簡殘留的五行共鳴。",
+  "start_node_id": "node_001",
+  "recommended_map_type": "semi_fixed",
+  "map_ui_id": "chapter_01",
+  "nodes": [
+    {
+      "id": "node_001",
+      "index": 1,
+      "stage_id": "stage_01",
+      "type": "combat",
+      "display_name": "霧門試煉",
+      "story_text": "石階盡頭，一具木頭機關人緩緩睜開眼。\n這是五大宗門留給試煉者的第一道測驗。\n它不為殺戮，只為確認你是否懂得最基本的攻防之道。",
+      "fixed_enemy": "wooden_training_dummy",
+      "reward_type": "normal_combat",
+      "next_node_ids": ["node_002"]
+    },
+    {
+      "id": "node_002",
+      "index": 2,
+      "stage_id": "stage_01",
+      "type": "combat",
+      "display_name": "霧中伏影",
+      "story_text": "霧氣在林間翻湧。\n你聽見低沉的獸吼，也看見幾道若隱若現的狐影在霧中穿梭。\n靈霧秘境並不只是試煉場，它本身也是妖獸棲息之地。",
+      "enemy_pool": ["swift_wolf", "phantom_fox"],
+      "reward_type": "normal_combat",
+      "next_node_ids": ["node_003"]
+    },
+    {
+      "id": "node_003",
+      "index": 3,
+      "stage_id": "stage_01",
+      "type": "event",
+      "display_name": "玉簡初動",
+      "event_id": "jade_slip_first_pulse",
+      "story_text": "戰鬥結束後，你懷中的殘缺玉簡忽然發熱。\n玉簡表面浮現出一道裂痕般的微光，像是在回應這片秘境中的某種氣息。\n你隱約聽見霧中有人低語：\n「入霧者，皆為棋子。」",
+      "next_node_ids": ["node_004"]
+    },
+    {
+      "id": "node_004",
+      "index": 4,
+      "stage_id": "stage_02",
+      "type": "combat",
+      "display_name": "五行絕地",
+      "story_text": "越往深處走，秘境地勢越發混亂。\n岩壁滲出毒水，地縫中燃起赤火，寒霧與雷光在半空交錯。\n這裡的五行靈氣已經失衡，稍有不慎便會走火入魔。",
+      "enemy_pool": ["stone_golem", "poison_swamp_frog"],
+      "reward_type": "normal_combat",
+      "next_node_ids": ["node_005"]
+    },
+    {
+      "id": "node_005",
+      "index": 5,
+      "stage_id": "stage_02",
+      "type": "combat",
+      "display_name": "五行絕地",
+      "story_text": "越往深處走，秘境地勢越發混亂。\n岩壁滲出毒水，地縫中燃起赤火，寒霧與雷光在半空交錯。\n這裡的五行靈氣已經失衡，稍有不慎便會走火入魔。",
+      "enemy_pool": ["ember_demon", "stone_golem"],
+      "reward_type": "normal_combat",
+      "next_node_ids": ["node_006"]
+    },
+    {
+      "id": "node_006",
+      "index": 6,
+      "stage_id": "stage_02",
+      "type": "shop",
+      "display_name": "霧中商人",
+      "story_text": "一盞孤燈出現在霧中。\n破舊攤位後，一名披著蓑衣的老者低聲笑道：\n「小友，想在秘境裡活下去，光靠膽子可不夠。」\n他攤開袖中木匣，裡面放著丹藥、法訣與幾枚來歷不明的靈符。",
+      "shop_id": "basic_mystic_market",
+      "next_node_ids": ["node_007"]
+    },
+    {
+      "id": "node_007",
+      "index": 7,
+      "stage_id": "stage_02",
+      "type": "elite_choice",
+      "display_name": "上古寶箱守護者",
+      "story_text": "山道盡頭，一座古老寶箱被石鎖封住。\n巨靈門力士盤坐在箱前，雙目微閉。\n他並非邪魔，也非妖獸。\n他只是守在這裡，等待有資格之人前來挑戰。",
+      "fixed_enemy": "giant_spirit_guard",
+      "reward_type": "elite_combat",
+      "next_node_ids": ["node_008"]
+    },
+    {
+      "id": "node_008",
+      "index": 8,
+      "stage_id": "stage_03",
+      "type": "event",
+      "display_name": "血霧降臨",
+      "event_id": "blood_mist_descends",
+      "story_text": "天空忽然暗了下來。\n原本潔白的靈霧被染成血色，遠處傳來試煉弟子的慘叫聲。\n你看見破碎的宗門令牌散落在石階上。\n這不再是試煉。\n有人闖入了秘境，正在獵殺所有新人。",
+      "cg_id": "blood_mist_arrival_cg",
+      "image_path": "res://assets/events/blood_mist_arrival_cg.png",
+      "next_node_ids": ["node_009"]
+    },
+    {
+      "id": "node_009",
+      "index": 9,
+      "stage_id": "stage_03",
+      "type": "story_elite_combat",
+      "display_name": "牽絲閣棄徒",
+      "story_text": "前方山路上，一名黑衣修士正俯身擺弄屍體。\n絲線般的靈力從他指尖垂落，刺入剛死去的試煉弟子體內。\n那具屍體顫抖著站起，眼中只剩空洞血光。\n黑衣修士抬頭看向你，笑道：\n「又來一具新材料。」",
+      "cg_id": "puppet_outcast_cg",
+      "image_path": "res://assets/events/puppet_outcast_cg.png",
+      "fixed_enemy": "puppet_pavilion_outcast",
+      "reward_type": "elite_combat",
+      "next_node_ids": ["node_010"]
+    },
+    {
+      "id": "node_010",
+      "index": 10,
+      "stage_id": "stage_03",
+      "type": "rest_or_upgrade",
+      "display_name": "殘亭歇息",
+      "story_text": "血霧稍淡，前方出現一座半塌的山亭。\n亭中石桌上刻著古老陣紋，似乎曾是秘境中的休憩點。\n你終於得到片刻喘息，但遠處的血色洞口正在逐漸擴大。",
+      "next_node_ids": ["node_011"]
+    },
+    {
+      "id": "node_011",
+      "index": 11,
+      "stage_id": "stage_03",
+      "type": "story_elite_combat",
+      "display_name": "泣血宗狂徒",
+      "story_text": "石階被鮮血浸透。\n一名赤裸上身的魔修跪在血泊中，瘋狂吞噬周圍殘留的精血。\n他聽見你的腳步聲，緩緩站起。\n「正道的試煉者……血氣果然乾淨。」\n他咧嘴一笑，身上的傷口竟開始癒合。",
+      "fixed_enemy": "blood_weeping_cultist",
+      "reward_type": "elite_combat",
+      "next_node_ids": ["node_012"]
+    },
+    {
+      "id": "node_012",
+      "index": 12,
+      "stage_id": "stage_04",
+      "type": "event",
+      "display_name": "玉簡共鳴",
+      "event_id": "jade_slip_resonance_unlock",
+      "story_text": "你終於抵達秘境核心外圍。\n血霧深處，那枚祖傳玉簡忽然劇烈震動。\n一道道五行靈紋從玉簡裂縫中浮現，與秘境陣眼遙相呼應。\n你明白了。\n邪派不是偶然闖入這裡。\n他們要找的，或許正是你身上的玉簡。",
+      "next_node_ids": ["boss_001"]
+    },
+    {
+      "id": "boss_001",
+      "index": 13,
+      "stage_id": "stage_04",
+      "type": "boss_combat",
+      "display_name": "忘情宮護法",
+      "story_text": "血色洞口之中，一名白衣女子立於破碎陣眼前。\n她神情淡漠，彷彿眼前死去的試煉弟子不過是落葉塵埃。\n她抬手拂過陣眼，秘境靈光寸寸崩裂。\n「玉簡在你身上。」\n「交出來，我可以讓你死得沒有痛苦。」\n你握緊玉簡，五行靈光在掌中流轉。\n這一戰，已無退路。",
+      "cg_id": "boss_intro_cg",
+      "image_path": "res://assets/events/boss_intro_cg.png",
+      "fixed_enemy": "forgetting_palace_protector",
+      "reward_type": "boss_combat",
+      "next_node_ids": []
+    }
+  ]
+}

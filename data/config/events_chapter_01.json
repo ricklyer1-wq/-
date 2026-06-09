@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "id": "events_chapter_01",
+  "events": [
+    {
+      "id": "jade_slip_first_pulse",
+      "title": "玉簡初動",
+      "stage": "stage_01",
+      "body": "戰鬥結束後，你懷中的殘缺玉簡忽然發熱。\n玉簡表面浮現出一道裂痕般的微光，像是在回應這片秘境中的某種氣息。\n你隱約聽見霧中有人低語：\n「入霧者，皆為棋子。」",
+      "choices": [
+        {"id": "hold_jade_slip", "text": "收起玉簡，繼續前行", "result": {"type": "gain_gold", "amount": 15}},
+        {"id": "study_jade_slip", "text": "強行探查玉簡裂光", "result": {"type": "sequence", "results": [{"type": "lose_hp", "amount": 6}, {"type": "gain_random_rare_card", "rarity": "R", "todo": "random rare card event reward not implemented"}]}},
+        {"id": "suppress_pulse", "text": "運氣壓下異動", "result": {"type": "heal_player", "amount": 8}}
+      ]
+    },
+    {
+      "id": "five_elements_crossing",
+      "title": "五行絕地",
+      "stage": "stage_02",
+      "body": "越往深處走，秘境地勢越發混亂。\n岩壁滲出毒水，地縫中燃起赤火，寒霧與雷光在半空交錯。\n這裡的五行靈氣已經失衡，稍有不慎便會走火入魔。",
+      "choices": [
+        {"id": "breathe_with_flow", "text": "順著靈氣流向調息", "result": {"type": "heal_player", "amount": 10}},
+        {"id": "force_absorb", "text": "冒險吸納失衡靈氣", "result": {"type": "sequence", "results": [{"type": "lose_hp", "amount": 5}, {"type": "enable_card_pack_for_run", "card_pack_id": "pack_five_elements"}]}},
+        {"id": "avoid_turbulence", "text": "避開最混亂的地脈", "result": {"type": "none"}}
+      ]
+    },
+    {
+      "id": "blood_mist_descends",
+      "title": "血霧降臨",
+      "stage": "stage_03",
+      "cg_id": "blood_mist_arrival_cg",
+      "image_path": "res://assets/events/blood_mist_arrival_cg.png",
+      "body": "天空忽然暗了下來。\n原本潔白的靈霧被染成血色，遠處傳來試煉弟子的慘叫聲。\n你看見破碎的宗門令牌散落在石階上。\n這不再是試煉。\n有人闖入了秘境，正在獵殺所有新人。",
+      "choices": [
+        {"id": "search_relics", "text": "搜集散落的令牌與靈石", "result": {"type": "sequence", "results": [{"type": "gain_gold", "amount": 25}, {"type": "add_next_combat_modifier", "modifier_id": "player_start_vulnerable_1", "todo": "next combat modifier not implemented"}]}},
+        {"id": "help_wounded", "text": "扶起仍有氣息的試煉者", "result": {"type": "sequence", "results": [{"type": "lose_hp", "amount": 8}, {"type": "remove_card", "todo": "remove card selection UI not implemented"}]}},
+        {"id": "leave_now", "text": "立刻離開血霧中心", "result": {"type": "none"}}
+      ]
+    },
+    {
+      "id": "jade_slip_resonance_unlock",
+      "title": "玉簡共鳴",
+      "stage": "stage_04",
+      "body": "你終於抵達秘境核心外圍。\n血霧深處，那枚祖傳玉簡忽然劇烈震動。\n一道道五行靈紋從玉簡裂縫中浮現，與秘境陣眼遙相呼應。\n你明白了。\n邪派不是偶然闖入這裡。\n他們要找的，或許正是你身上的玉簡。",
+      "choices": [
+        {"id": "accept_resonance", "text": "接納玉簡的五行共鳴", "result": {"type": "enable_jade_slip_resonance"}}
+      ]
+    }
+  ]
+}

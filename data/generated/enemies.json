@@ -1,0 +1,314 @@
+[
+  {
+    "id": "wooden_training_dummy",
+    "name": "木頭機關人",
+    "hp": 38,
+    "max_hp": 38,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "attack",
+        "value": 5
+      },
+      {
+        "type": "defend",
+        "value": 5
+      },
+      {
+        "type": "attack",
+        "value": 6
+      }
+    ]
+  },
+  {
+    "id": "swift_wolf",
+    "name": "疾風狼",
+    "hp": 46,
+    "max_hp": 46,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "attack",
+        "value": 9,
+        "per_hit_value": 3,
+        "hits": 3,
+        "todo": "multi-hit intent display/resolution not yet supported; value is total damage fallback"
+      },
+      {
+        "type": "attack",
+        "value": 8,
+        "per_hit_value": 4,
+        "hits": 2,
+        "apply_status": {
+          "target": "player",
+          "id": "vulnerable",
+          "amount": 1
+        },
+        "todo": "attack plus vulnerable is data-only until enemy intent resolver supports attached statuses"
+      },
+      {
+        "type": "defend",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "id": "phantom_fox",
+    "name": "幻影狐",
+    "hp": 42,
+    "max_hp": 42,
+    "block": 0,
+    "statuses": [],
+    "max_status_gain_per_turn": {
+      "intangible": 1
+    },
+    "intent_sequence": [
+      {
+        "type": "defend",
+        "value": 5,
+        "gain_status": {
+          "target": "self",
+          "id": "intangible",
+          "amount": 1
+        },
+        "todo": "defend plus phantom/intangible is data-only until enemy intent resolver supports attached statuses"
+      },
+      {
+        "type": "attack",
+        "value": 8
+      },
+      {
+        "type": "attack",
+        "value": 5,
+        "apply_status": {
+          "target": "player",
+          "id": "weak",
+          "amount": 1
+        },
+        "todo": "attack plus weak is data-only until enemy intent resolver supports attached statuses"
+      }
+    ]
+  },
+  {
+    "id": "stone_golem",
+    "name": "石岩妖",
+    "hp": 72,
+    "max_hp": 72,
+    "block": 8,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "defend",
+        "value": 12
+      },
+      {
+        "type": "buff",
+        "value": 2,
+        "status": "strength"
+      },
+      {
+        "type": "attack",
+        "value": 14
+      }
+    ]
+  },
+  {
+    "id": "poison_swamp_frog",
+    "name": "毒沼蛙",
+    "hp": 58,
+    "max_hp": 58,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "apply_status",
+        "value": 2,
+        "target": "player",
+        "status": "poison",
+        "todo": "enemy poison intent is data-only until resolver supports non-burn debuffs"
+      },
+      {
+        "type": "attack",
+        "value": 6,
+        "apply_status": {
+          "target": "player",
+          "id": "poison",
+          "amount": 1
+        },
+        "todo": "attack plus poison is data-only until enemy intent resolver supports attached statuses"
+      },
+      {
+        "type": "defend",
+        "value": 9
+      }
+    ]
+  },
+  {
+    "id": "ember_demon",
+    "name": "赤炎魔",
+    "hp": 82,
+    "max_hp": 82,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "attack",
+        "value": 9
+      },
+      {
+        "type": "buff",
+        "value": 2,
+        "status": "strength"
+      },
+      {
+        "type": "attack",
+        "value": 14,
+        "apply_status": {
+          "target": "player",
+          "id": "burn",
+          "amount": 2
+        },
+        "todo": "attack plus burn is data-only until enemy intent resolver supports attached statuses"
+      }
+    ]
+  },
+  {
+    "id": "giant_spirit_guard",
+    "name": "巨靈門力士",
+    "hp": 115,
+    "max_hp": 115,
+    "block": 12,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "gain_status",
+        "value": 3,
+        "target": "self",
+        "status": "thorns",
+        "only_triggers_from": "normal_attack",
+        "todo": "thorns is data-only; true damage, poison, and burn should not trigger it when implemented"
+      },
+      {
+        "type": "attack",
+        "value": 12
+      },
+      {
+        "type": "defend",
+        "value": 18
+      }
+    ]
+  },
+  {
+    "id": "puppet_pavilion_outcast",
+    "name": "牽絲閣棄徒",
+    "hp": 76,
+    "max_hp": 76,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "summon",
+        "value": 1,
+        "summon_enemy_id": "iron_corpse",
+        "max_active_summons": 1,
+        "todo": "summon intent is data-only until enemy intent resolver supports summons"
+      },
+      {
+        "type": "attack",
+        "value": 10
+      },
+      {
+        "type": "apply_status",
+        "value": 1,
+        "target": "player",
+        "statuses": [
+          {
+            "id": "weak",
+            "amount": 1
+          },
+          {
+            "id": "vulnerable",
+            "amount": 1
+          }
+        ],
+        "todo": "weak plus vulnerable enemy intent is data-only until resolver supports non-burn debuffs"
+      }
+    ]
+  },
+  {
+    "id": "blood_weeping_cultist",
+    "name": "泣血宗狂徒",
+    "hp": 96,
+    "max_hp": 96,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "self_damage_attack",
+        "value": 14,
+        "self_damage": 5,
+        "todo": "self-damage attack is data-only until enemy intent resolver supports self damage"
+      },
+      {
+        "type": "lifesteal_attack",
+        "value": 8,
+        "heal": 6,
+        "todo": "lifesteal attack is data-only until enemy intent resolver supports lifesteal"
+      },
+      {
+        "type": "attack",
+        "value": 12
+      }
+    ],
+    "todo": "low-hp frenzy is intentionally not enabled because current battle flow does not support conditional enemy passives"
+  },
+  {
+    "id": "forgetting_palace_protector",
+    "name": "忘情宮護法",
+    "hp": 165,
+    "max_hp": 165,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "attack",
+        "value": 10
+      },
+      {
+        "type": "cleanse_player_buffs",
+        "value": 2,
+        "intent_hint": "淨化玩家最多 2 種正面狀態",
+        "todo": "boss cleanse is data-only until enemy intent resolver supports removing player buffs"
+      },
+      {
+        "type": "attack",
+        "value": 20
+      },
+      {
+        "type": "defend",
+        "value": 15
+      }
+    ]
+  },
+  {
+    "id": "iron_corpse",
+    "name": "鐵屍",
+    "hp": 22,
+    "max_hp": 22,
+    "block": 0,
+    "statuses": [],
+    "intent_sequence": [
+      {
+        "type": "attack",
+        "value": 5
+      },
+      {
+        "type": "defend",
+        "value": 4
+      }
+    ],
+    "todo": "temporary portrait reuses ENEMY_008 art until a dedicated 鐵屍 image is available"
+  }
+]

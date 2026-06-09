@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "chapter_maps": {
+    "chapter_01": {
+      "background": "res://assets/maps/chapter_01_map_bg.png",
+      "base_width": 360,
+      "base_height": 640,
+      "node_positions": {
+        "node_001": {"x": 170, "y": 560},
+        "node_002": {"x": 145, "y": 510},
+        "node_003": {"x": 105, "y": 460},
+        "node_004": {"x": 125, "y": 405},
+        "node_005": {"x": 180, "y": 355},
+        "node_006": {"x": 245, "y": 310},
+        "node_007": {"x": 230, "y": 260},
+        "node_008": {"x": 175, "y": 220},
+        "node_009": {"x": 205, "y": 185},
+        "node_010": {"x": 255, "y": 145},
+        "node_011": {"x": 285, "y": 110},
+        "node_012": {"x": 300, "y": 82},
+        "boss_001": {"x": 300, "y": 58}
+      }
+    }
+  }
+}

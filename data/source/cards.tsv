@@ -1,0 +1,82 @@
+id	name	cost	type	element	faction	pool	npc_only	description	effect_logic	rarity
+BAS_001	基礎吐納	1	skill	neutral	base	base	false	獲得 5 點護盾。	"op: ""add_block"", amount: 5"	BASIC
+BAS_002	基礎劍訣	1	attack	neutral	base	base	false	造成 6 點傷害。	"op: ""deal_damage"", amount: 6"	BASIC
+BAS_003	閃避步法	0	skill	neutral	base	base	false	獲得 3 點護盾，抽 1 張牌。	"op: ""add_block"", amount: 3; op: ""draw_card"", amount: 1"	N
+BAS_004	聚氣散	0	skill	neutral	base	base	false	獲得 2 點能量。消耗。	"op: ""gain_energy"", amount: 2; op: ""exhaust"""	N
+BAS_005	破綻百出	1	skill	neutral	base	base	false	敵方全體給予 1 層【易傷】(受傷+50%)。	"op: ""apply_status_all"", status_key: ""Vulnerable"", amount: 1"	N
+BAS_006	靈氣護盾	1	skill	neutral	base	base	false	獲得 6 點護盾。若手牌有攻擊牌，額外獲得 3 點。	"op: ""add_block"", amount: 6, condition: ""hand_has_attack"""	N
+BAS_007	飛身托跡	1	skill	neutral	base	base	false	抽 2 張牌，捨棄 1 張手牌。	"op: ""draw_card"", amount: 2; op: ""discard"", amount: 1"	N
+BAS_008	靈石利誘	0	skill	neutral	base	base	false	獲得 1 點能量。本局戰鬥金幣獎勵減少。	"op: ""gain_energy"", amount: 1; op: ""reduce_gold"", amount: 10"	N
+BAS_009	便捷小還丹	1	skill	neutral	base	base	false	回復 4 點生命值。消耗。	"op: ""heal"", amount: 4; op: ""exhaust"""	N
+BAS_010	強攻訣	1	skill	neutral	base	base	false	本回合下一張攻擊卡傷害增加 4 點。	"op: ""add_buff"", status_key: ""Next_Attack_Boost"", amount: 4"	N
+BAS_011	神識掃描	1	skill	neutral	base	base	false	給予目標 2 層【易傷】與 1 層【虛弱】。	"op: ""apply_status"", status_key: ""Vulnerable"", amount: 2; op: ""apply_status"", status_key: ""Weak"", amount: 1"	R
+BAS_012	蓄勢待發	1	skill	neutral	base	base	false	保留至多 2 張手牌至下一回合。	"op: ""retain_hand"", amount: 2"	R
+BAS_013	破甲針	1	attack	neutral	base	base	false	造成 5 點傷害。解除目標所有護盾。	"op: ""strip_block""; op: ""deal_damage"", amount: 5"	R
+BAS_014	奪路而逃	2	skill	neutral	base	base	false	獲得 12 點護盾，結束你的回合。	"op: ""add_block"", amount: 12; op: ""end_turn"""	R
+BAS_015	借力打力	1	skill	neutral	base	base	false	當前被施加幾層 Debuff，就獲得幾倍的護盾。	"op: ""add_block_per_debuff"", multiplier: 4"	R
+BAS_016	斂氣術	1	power	neutral	base	base	false	你的回合結束時，未使用的能量可保留 1 點。	"op: ""add_power"", status_key: ""Energy_Retain"", amount: 1"	SR
+BAS_017	大力金剛丸	0	skill	neutral	base	base	false	獲得 10 點護盾。洗入 1 張【丹毒】到抽牌堆。	"op: ""add_block"", amount: 10; op: ""shuffle_into_draw"", card_id: ""STS_001"""	SR
+BAS_018	搜刮戰場	1	skill	neutral	base	base	false	從棄牌堆選擇 1 張卡牌加入手牌。消耗。	"op: ""discover_from_discard""; op: ""exhaust"""	SR
+BAS_019	仙人指路	2	attack	neutral	base	base	false	造成 14 點傷害。隨機將一張稀有卡加入手牌。	"op: ""deal_damage"", amount: 14; op: ""add_random_rare_to_hand"""	SR
+BAS_020	天道酬勤	2	power	neutral	base	base	false	回合結束時，保留所有未使用的能量與手牌。	"op: ""add_power"", status_key: ""Retain_All"", amount: 1"	SSR
+GLD_001	凝劍訣	1	skill	metal	cangfenggu	metal	false	將 2 張【飛劍】洗入抽牌堆。	"op: ""shuffle_into_draw"", card_id: ""TKN_001"", amount: 2"	N
+GLD_002	劍氣外放	1	skill	metal	cangfenggu	metal	false	獲得 2 層【劍意】(每層使所有攻擊傷害+1)。	"op: ""add_power"", status_key: ""Sword_Intent"", amount: 2"	N
+GLD_003	拔劍術	0	attack	metal	cangfenggu	metal	false	造成 5 點傷害。只能作為回合第一張牌打出。	"op: ""deal_damage"", amount: 5, condition: ""first_card_this_turn"""	N
+GLD_004	疾風劍法	1	attack	metal	cangfenggu	metal	false	造成 3 點傷害 2 次。	"op: ""deal_damage"", amount: 3, times: 2"	R
+GLD_005	劍影步	1	skill	metal	cangfenggu	metal	false	獲得 5 點護盾。每有一層【劍意】額外+2護盾。	"op: ""add_block_per_status"", status_key: ""Sword_Intent"", base: 5, mult: 2"	R
+GLD_006	熔劍鑄鐵	1	skill	metal	cangfenggu	metal	false	消耗手牌所有【飛劍】，每消耗一張獲得 1 點能量。	"op: ""exhaust_type_in_hand"", card_id: ""TKN_001"", store_as: ""X""; op: ""gain_energy"", amount: ""X"""	SR
+GLD_007	養劍葫蘆	1	power	metal	cangfenggu	metal	false	每當你打出一張 0 耗能的攻擊牌，獲得 1 層【劍意】。	"op: ""add_power"", status_key: ""Gourd_Synergy"", amount: 1"	SR
+GLD_008	天外飛仙	2	attack	metal	cangfenggu	metal	false	從抽牌與棄牌堆中強制抽回並打出所有【飛劍】。	"op: ""play_all_from_decks"", card_id: ""TKN_001"""	SSR
+WOD_001	引毒咒	1	skill	wood	kumuzhai	wood	false	給予敵人 4 層【中毒】。	"op: ""apply_status"", status_key: ""Poison"", amount: 4"	N
+WOD_002	腐骨掌	1	attack	wood	kumuzhai	wood	false	造成 4 點傷害。給予 2 層【中毒】。	"op: ""deal_damage"", amount: 4; op: ""apply_status"", status_key: ""Poison"", amount: 2"	N
+WOD_003	青蔓術	1	skill	wood	kumuzhai	wood	false	獲得 6 點護盾。將 1 張《毒刺》加入手牌。	"op: ""add_block"", amount: 6; op: ""add_to_hand"", card_id: ""WOD_T01"", amount: 1"	N
+WOD_004	毒刺連擊	1	attack	wood	kumuzhai	wood	false	造成 3 點傷害。若目標已中毒，額外附加 3 層【中毒】。	"op: ""deal_damage"", amount: 3; op: ""apply_status"", status_key: ""Poison"", amount: 3, condition: ""target_has_poison"""	R
+WOD_005	嗜血藤蔓	2	attack	wood	kumuzhai	wood	false	造成 10 點傷害。回復未被護盾抵消之真實傷害的一半生命。	"op: ""deal_damage_vampire"", amount: 10, lifesteal_ratio: 0.5"	R
+WOD_006	催化劑	1	skill	wood	kumuzhai	wood	false	目標敵人每有 5 層【中毒】，額外獲得 3 層【中毒】。消耗。	"op: ""apply_status_per_status_threshold"", status_key: ""Poison"", threshold: 5, add_amount: 3; op: ""exhaust"""	SR
+WOD_007	萬物生長	2	power	wood	kumuzhai	wood	false	每當你給予敵人【中毒】狀態時，額外附加 2 層。	"op: ""add_power"", status_key: ""Poison_Amplifier"", amount: 2"	SR
+WOD_008	碧落黃泉	3	attack	wood	kumuzhai	wood	false	造成敵人身上【中毒】層數 3 倍的真傷。清除其所有中毒。	"op: ""deal_true_damage_per_status"", status_key: ""Poison"", multiplier: 3; op: ""remove_status"", status_key: ""Poison"""	SSR
+WAT_001	寒冰錐	1	attack	water	xuanbinggong	water	false	造成 6 點傷害。給予 1 層【冰寒】(每層降低敵方攻擊力 2 點)。	"op: ""deal_damage"", amount: 6; op: ""apply_status"", status_key: ""Chilled"", amount: 1"	N
+WAT_002	水流術	1	skill	water	xuanbinggong	water	false	抽 2 張牌。本回合若已打出過水系卡，額外抽 1 張。	"op: ""draw_card"", amount: 2; op: ""draw_card"", amount: 1, condition: ""played_water_this_turn"""	N
+WAT_003	驚濤拍岸	1	attack	water	xuanbinggong	water	false	造成 6 點傷害。若本回合已打出 3 張牌或以上，獲得 6 點護盾。	"op: ""deal_damage"", amount: 6; op: ""add_block"", amount: 6, condition: ""cards_played_ge_3"""	N
+WAT_004	冰封千里	2	skill	water	xuanbinggong	water	false	全體敵人施加 2 層【冰寒】與 1 層【虛弱】。	"op: ""apply_status_all"", status_key: ""Chilled"", amount: 2; op: ""apply_status_all"", status_key: ""Weak"", amount: 1"	R
+WAT_005	鏡花水月	2	skill	water	xuanbinggong	water	false	獲得 1 層【幻影】(完全免除下一次受到的傷害)。	"op: ""add_status"", status_key: ""Intangible"", amount: 1"	R
+WAT_006	化水訣	0	skill	water	xuanbinggong	water	false	捨棄 2 張牌，獲得 2 點能量。	"op: ""discard"", amount: 2; op: ""gain_energy"", amount: 2"	SR
+WAT_007	生生不息	2	power	water	xuanbinggong	water	false	你的回合結束時，若手牌完全為空，強制抽 3 張牌。	"op: ""add_power"", status_key: ""Draw_On_Empty_Hand"", amount: 3"	SR
+WAT_008	九歌落水	X	attack	water	xuanbinggong	water	false	消耗所有能量。造成 7 點傷害 X 次。	"op: ""consume_all_energy"", store_as: ""X""; op: ""deal_damage"", amount: 7, times: ""X"""	SSR
+FIR_001	火球術	1	attack	fire	fentiangu	fire	false	造成 8 點傷害，給予 1 層【燃燒】(每回合結束受傷)。	"op: ""deal_damage"", amount: 8; op: ""apply_status"", status_key: ""Burn"", amount: 1"	N
+FIR_002	引火燒身	0	skill	fire	fentiangu	fire	false	獲得 2 層【化焰】(每回合受2點傷，火系傷害+3)，抽 2 張牌。	"op: ""apply_status"", status_key: ""Flame_Body"", amount: 2, to: ""self""; op: ""draw_card"", amount: 2"	N
+FIR_003	炎爆術	2	attack	fire	fentiangu	fire	false	造成 12 點傷害。若你擁有【化焰】，額外造成 12 點傷害，並對自己施加 3 層【燃燒】。消耗。	"op: ""deal_damage"", amount: 12; op: ""deal_damage"", amount: 12, condition: ""self_has_flame_body""; op: ""apply_status"", status_key: ""Burn"", amount: 3, to: ""self"", condition: ""self_has_flame_body""; op: ""exhaust"""	N
+FIR_004	烈焰護體	1	skill	fire	fentiangu	fire	false	獲得 7 點護盾。對本回合攻擊你的敵人賦予 2 層【燃燒】。	"op: ""add_block"", amount: 7; op: ""add_buff"", status_key: ""Fire_Thorns"", amount: 2"	R
+FIR_005	星火燎原	2	attack	fire	fentiangu	fire	false	對全體敵人造成 5 點傷害。引爆所有敵人的【燃燒】。每引爆 1 名敵人，你失去 2 點生命。消耗。	"op: ""deal_aoe_damage"", amount: 5; op: ""trigger_burn_all"", lose_hp_per_triggered_enemy: 2; op: ""exhaust"""	R
+FIR_006	焚血訣	1	skill	fire	fentiangu	fire	false	失去 5 點生命值。獲得 3 點能量。	"op: ""lose_hp"", amount: 5; op: ""gain_energy"", amount: 3"	SR
+FIR_007	紅蓮業火	2	attack	fire	fentiangu	fire	false	將你身上的【化焰】層數全部轉移給全體敵人，並變為【燃燒】。	"op: ""get_self_status"", status_key: ""Flame_Body"", store_as: ""X""; op: ""remove_status"", status_key: ""Flame_Body""; op: ""apply_status_all"", status_key: ""Burn"", amount: ""X"""	SR
+FIR_008	涅槃重生	3	power	fire	fentiangu	fire	false	受到致命傷時免疫，消耗所有【化焰】，每層回 5 生命。限1次。	"op: ""add_power"", status_key: ""Phoenix_Rebirth"", amount: 1"	SSR
+FIR_009	轉焰歸元	1	skill	fire	fentiangu	fire	false	移除自身所有【燃燒】。每移除 1 層【燃燒】，獲得 2 點護盾。若至少移除 3 層【燃燒】，抽 1 張牌。消耗。	"op: ""remove_self_status"", status_key: ""Burn"", store_as: ""X""; op: ""add_block"", amount: 2, multiplier: ""X""; op: ""draw_card"", amount: 1, condition: ""X_gte_3""; op: ""exhaust"""	R
+ERT_001	聚土成山	2	skill	earth	zhenyuezong	earth	false	獲得 15 點護盾。	"op: ""add_block"", amount: 15"	N
+ERT_002	飛砂走石	1	attack	earth	zhenyuezong	earth	false	造成 7 點傷害，獲得 4 點護盾。	"op: ""deal_damage"", amount: 7; op: ""add_block"", amount: 4"	N
+ERT_003	蠻牛衝撞	1	attack	earth	zhenyuezong	earth	false	造成 10 點傷害。自身獲得 1 層【易傷】。	"op: ""deal_damage"", amount: 10; op: ""apply_status"", status_key: ""Vulnerable"", amount: 1, to: ""self"""	N
+ERT_004	大地脈動	2	power	earth	zhenyuezong	earth	false	回合結束時，你的護盾值不會減少消失（持續整場戰鬥）。	"op: ""add_power"", status_key: ""Barricade"", amount: 1"	R
+ERT_005	泰山壓頂	2	attack	earth	zhenyuezong	earth	false	造成等同於你當前護盾值的物理傷害。	"op: ""deal_damage_equal_block"""	R
+ERT_006	龜息功	0	skill	earth	zhenyuezong	earth	false	獲得 6 點護盾。下一回合少抽 1 張牌。	"op: ""add_block"", amount: 6; op: ""add_buff"", status_key: ""Draw_Reduction_Next"", amount: 1"	SR
+ERT_007	岩石重構	1	skill	earth	zhenyuezong	earth	false	將你當前的護盾值翻倍。消耗。	"op: ""double_current_block""; op: ""exhaust"""	SR
+ERT_008	隕石天降	3	attack	earth	zhenyuezong	earth	false	對全體敵人造成 24 點傷害，並施加 2 層【虛弱】。	"op: ""deal_aoe_damage"", amount: 24; op: ""apply_status_all"", status_key: ""Weak"", amount: 2"	SSR
+SOU_001	神念刺	1	attack	soul	taixuguan	soul	false	失去 2 點生命。造成 8 點真實傷害（無視護盾）。	"op: ""lose_hp"", amount: 2; op: ""deal_true_damage"", amount: 8"	N
+SOU_002	定神術	1	skill	soul	taixuguan	soul	false	給予敵人 2 層【鎖神】(每層使其受到的精神真傷+2)。	"op: ""apply_status"", status_key: ""Soul_Mark"", amount: 2"	N
+SOU_003	神識干擾	1	skill	soul	taixuguan	soul	false	獲得 5 點護盾。減少目標 1 點意圖傷害。	"op: ""add_block"", amount: 5; op: ""reduce_intent_damage"", amount: 1"	N
+SOU_004	驚魂咒	2	skill	soul	taixuguan	soul	false	使單體敵人下回合的意圖強制變為【發呆】(跳過回合)。消耗。	"op: ""change_intent"", type: ""Stun""; op: ""exhaust"""	R
+SOU_005	搜魂奪魄	1	skill	soul	taixuguan	soul	false	造成 6 點真傷。若成功擊殺敵人，玩家永久獲得 1 點最大生命值。	"op: ""deal_true_damage"", amount: 6; op: ""gain_max_hp_on_kill"", amount: 1"	R
+SOU_006	奪舍魔音	2	attack	soul	taixuguan	soul	false	造成 10 點真傷。如果目標意圖是「攻擊」，使其攻擊目標變為自己。	"op: ""deal_true_damage"", amount: 10; op: ""redirect_intent_to_self"", condition: ""target_intent_is_attack"""	SR
+SOU_007	神念化盾	2	skill	soul	taixuguan	soul	false	獲得 10 點護盾。若手牌有神魂卡，本回合內所有精神傷害乘以 1.5 倍。	"op: ""add_block"", amount: 10; op: ""buff_soul_damage"", multiplier: 1.5, condition: ""hand_has_soul"""	SR
+SOU_008	神識風暴	X	attack	soul	taixuguan	soul	false	消耗所有能量。每消耗 1 點能量，對全體敵人造成 6 點真實傷害。	"op: ""consume_all_energy"", store_as: ""X""; op: ""deal_true_aoe_damage"", amount: 6, multiplier: ""X"""	SSR
+WPN_001	漫天花雨	1	skill	neutral	qianjimen	weapon	false	將 3 張【毒鏢】洗入抽牌堆。	"op: ""shuffle_into_draw"", card_id: ""TKN_002"", amount: 3"	N
+WPN_002	藏鋒術	1	skill	neutral	qianjimen	weapon	false	捨棄 1 張手牌。獲得 8 點護盾。	"op: ""discard"", amount: 1; op: ""add_block"", amount: 8"	N
+WPN_003	飛刀突襲	1	attack	neutral	qianjimen	weapon	false	造成 2 點傷害 3 次。每有一張狀態/衍生卡在手牌，傷害+1。	"op: ""deal_damage_boost_by_status_cards"", base_damage: 2, times: 3"	N
+WPN_004	淬毒機關	1	skill	neutral	qianjimen	weapon	false	抽 2 張牌。本回合內，你每打出一張 0 費衍生卡，施加 1 層中毒。	"op: ""draw_card"", amount: 2; op: ""add_temporary_buff"", status_key: ""Token_Apply_Poison"", amount: 1"	R
+WPN_005	回旋扇	1	attack	neutral	qianjimen	weapon	false	造成 7 點傷害。若此卡是被「捨棄」而非被打出，自動放回手牌。	"op: ""deal_damage"", amount: 7; op: ""return_to_hand_on_discard"""	R
+WPN_006	袖裡乾坤	0	skill	neutral	qianjimen	weapon	false	捨棄手牌中所有的狀態與詛咒卡（如丹毒）。每捨棄一張，抽 1 張牌。	"op: ""discard_all_type"", type: ""Status_or_Curse"", store_as: ""X""; op: ""draw_card"", amount: ""X"""	SR
+WPN_007	暴雨梨花	2	attack	neutral	qianjimen	weapon	false	造成 4 點傷害。你每有一張棄牌，重複施放此效果一次。	"op: ""deal_damage"", amount: 4, repeat_per_discard_count: 1"	SR
+WPN_008	千機匣	2	power	neutral	qianjimen	weapon	false	在本場戰鬥中，每當你因任何卡牌效果而「捨棄」一張牌，隨機對一名敵人造成 4 點傷害。	"op: ""add_power"", status_key: ""Damage_On_Discard"", amount: 4"	SSR
+TKN_001	飛劍	0	attack	metal	cangfenggu	token	false	造成 3 點傷害。消耗。	"op: ""deal_damage"", amount: 3; op: ""exhaust"""	TOKEN
+WOD_T01	毒刺	0	attack	wood	kumuzhai	token	false	造成 1 點傷害。給予 1 層【中毒】。消耗。	"op: ""deal_damage"", amount: 1; op: ""apply_status"", status_key: ""Poison"", amount: 1; op: ""exhaust"""	TOKEN
+TKN_002	毒鏢	0	attack	neutral	qianjimen	token	false	造成 2 點傷害。給予 1 層【中毒】。消耗。	"op: ""deal_damage"", amount: 2; op: ""apply_status"", status_key: ""Poison"", amount: 1; op: ""exhaust"""	TOKEN
+STS_001	丹毒	1	status	neutral	base	status	false	無法被打出。回合結束時若仍在手牌，玩家失去 2 點生命值。	"op: ""unplayable""; op: ""trigger_on_turn_end_in_hand"", action: ""lose_hp"", amount: 2"	STATUS

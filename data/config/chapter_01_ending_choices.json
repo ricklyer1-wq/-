@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "id": "chapter_01_ending_choices",
+  "purpose": "第一章 Boss 勝利後的宗門/散修選擇。選項會永久解鎖主修流派與卡牌包，但不強制永久提高掉落。",
+  "scene": "ChapterEndingScene",
+  "chapter_id": "chapter_01",
+  "title": "第一章通關",
+  "subtitle": "靈霧染血",
+  "body": "五大宗門長老打破結界趕來，向你拋出橄欖枝。你也可以選擇成為散修，守住祖傳玉簡的秘密。",
+  "choices": [
+    {
+      "id": "join_metal_sect",
+      "name": "拜入玄金劍閣",
+      "unlock_cultivator": "metal_cultivator",
+      "unlock_card_packs": ["pack_metal"],
+      "description": "解鎖金修開局與金系卡牌包。偏向劍意、飛劍與多段連擊。"
+    },
+    {
+      "id": "join_wood_sect",
+      "name": "拜入青木谷",
+      "unlock_cultivator": "wood_cultivator",
+      "unlock_card_packs": ["pack_wood"],
+      "description": "解鎖木修開局與木系卡牌包。偏向中毒、恢復與持續傷害。"
+    },
+    {
+      "id": "join_water_sect",
+      "name": "拜入滄瀾宗",
+      "unlock_cultivator": "water_cultivator",
+      "unlock_card_packs": ["pack_water"],
+      "description": "解鎖水修開局與水系卡牌包。偏向冰寒、抽棄與靈力流動。"
+    },
+    {
+      "id": "join_fire_sect",
+      "name": "拜入離火宗",
+      "unlock_cultivator": "fire_cultivator",
+      "unlock_card_packs": ["pack_fire"],
+      "description": "解鎖火修開局與火系卡牌包。偏向燃燒、化焰與自燃爆發。"
+    },
+    {
+      "id": "join_earth_sect",
+      "name": "拜入鎮嶽宗",
+      "unlock_cultivator": "earth_cultivator",
+      "unlock_card_packs": ["pack_earth"],
+      "description": "解鎖土修開局與土系卡牌包。偏向護盾、保盾與反擊。"
+    },
+    {
+      "id": "remain_wanderer",
+      "name": "成為散修",
+      "unlock_cultivator": "wanderer_cultivator",
+      "unlock_card_packs": ["pack_five_elements", "pack_all_methods"],
+      "profile_bonus": {
+        "max_active_card_packs_bonus": 1
+      },
+      "description": "解鎖散修開局、五行混元包與萬法包；散修路線可多啟用 1 個卡牌包。"
+    }
+  ],
+  "rules": [
+    "選擇只解鎖內容，不會永久強制套用權重。",
+    "已解鎖卡牌包需在開局或商店勾選才影響本局。",
+    "v1 可先允許通關後只選一次；之後可做多周目解鎖全部宗門。"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "counter_multiplier": 1.5,
+  "synergy_multiplier": 1.2,
+  "synergy_hook": "trigger_synergy_effect",
+  "counter_cycle": {
+    "metal": "wood",
+    "wood": "earth",
+    "earth": "water",
+    "water": "fire",
+    "fire": "metal"
+  },
+  "synergy_cycle": [
+    "wood",
+    "fire",
+    "earth",
+    "metal",
+    "water"
+  ],
+  "elements": [
+    {
+      "id": "metal",
+      "name": "金"
+    },
+    {
+      "id": "wood",
+      "name": "木"
+    },
+    {
+      "id": "water",
+      "name": "水"
+    },
+    {
+      "id": "fire",
+      "name": "火"
+    },
+    {
+      "id": "earth",
+      "name": "土"
+    }
+  ]
+}

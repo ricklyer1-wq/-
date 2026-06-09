@@ -1,0 +1,27 @@
+{
+  "backgrounds": {
+    "chapter01_bg_outer_trial": {
+      "path": "res://assets/backgrounds/chapter01_bg_outer_trial.png"
+    },
+    "chapter01_bg_five_elements_zone": {
+      "path": "res://assets/backgrounds/chapter01_bg_five_elements_zone.png"
+    },
+    "chapter01_bg_blood_mist_invasion": {
+      "path": "res://assets/backgrounds/chapter01_bg_blood_mist_invasion.png"
+    },
+    "chapter01_bg_core_altar_boss": {
+      "path": "res://assets/backgrounds/chapter01_bg_core_altar_boss.png"
+    }
+  },
+  "node_backgrounds": {
+    "node_001": "chapter01_bg_outer_trial",
+    "node_002": "chapter01_bg_outer_trial",
+    "node_004": "chapter01_bg_five_elements_zone",
+    "node_005": "chapter01_bg_five_elements_zone",
+    "node_007": "chapter01_bg_blood_mist_invasion",
+    "node_009": "chapter01_bg_blood_mist_invasion",
+    "node_011": "chapter01_bg_blood_mist_invasion",
+    "boss_001": "chapter01_bg_core_altar_boss"
+  },
+  "fallback_background": "chapter01_bg_outer_trial"
+}

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/map/MapNodeView.gd" id="1_map_node_view"]
+
+[node name="MapNodeView" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 132)
+script = ExtResource("1_map_node_view")

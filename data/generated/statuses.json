@@ -1,0 +1,107 @@
+[
+  {
+    "id": "poison",
+    "name": "中毒",
+    "type": "debuff",
+    "description": "回合持續傷害。",
+    "stacking": true
+  },
+  {
+    "id": "weak",
+    "name": "虛弱",
+    "type": "debuff",
+    "description": "降低造成的攻擊傷害。",
+    "stacking": true
+  },
+  {
+    "id": "vulnerable",
+    "name": "易傷",
+    "type": "debuff",
+    "description": "受到更多攻擊傷害。",
+    "stacking": true
+  },
+  {
+    "id": "strength",
+    "name": "力量",
+    "type": "power",
+    "description": "提高攻擊傷害。",
+    "stacking": true
+  },
+  {
+    "id": "sword_intent",
+    "name": "劍意",
+    "type": "power",
+    "description": "攻擊傷害提高。",
+    "stacking": true
+  },
+  {
+    "id": "chilled",
+    "name": "冰寒",
+    "type": "debuff",
+    "description": "降低敵方攻擊。",
+    "stacking": true
+  },
+  {
+    "id": "intangible",
+    "name": "幻影",
+    "type": "buff",
+    "description": "閃避或抵禦下一次攻擊。",
+    "stacking": true
+  },
+  {
+    "id": "flame_body",
+    "name": "化焰",
+    "type": "buff",
+    "description": "自傷但提高攻擊節奏。",
+    "stacking": true
+  },
+  {
+    "id": "burn",
+    "name": "燃燒",
+    "type": "debuff",
+    "description": "回合結束時受到火焰傷害。",
+    "stacking": true
+  },
+  {
+    "id": "barricade",
+    "name": "護盾保留",
+    "type": "power",
+    "description": "回合結束時護盾不會消失。",
+    "stacking": false
+  },
+  {
+    "id": "poison_amplifier",
+    "name": "萬物生長",
+    "type": "power",
+    "description": "給予中毒時附加額外層數。",
+    "stacking": true
+  },
+  {
+    "id": "draw_on_empty_hand",
+    "name": "生生不息",
+    "type": "power",
+    "description": "回合結束手牌為空時抽牌。",
+    "stacking": true
+  },
+  {
+    "id": "phoenix_rebirth",
+    "name": "涅槃重生",
+    "type": "power",
+    "description": "免疫一次致死傷。",
+    "stacking": false
+  },
+  {
+    "id": "damage_on_discard",
+    "name": "千機匣",
+    "type": "power",
+    "description": "棄牌時對敵人造成傷害。",
+    "stacking": true
+  },
+  {
+    "id": "buff_removed",
+    "name": "正面狀態消除",
+    "type": "debuff",
+    "description": "標記正面狀態被清除。",
+    "stacking": false
+  }
+]

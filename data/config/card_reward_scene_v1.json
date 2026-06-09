@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "id": "card_reward_scene_v1",
+  "scene": "CardRewardScene",
+  "layout": {
+    "title": "戰鬥勝利",
+    "subtitle": "選擇一張法訣加入牌組",
+    "card_slots": 3,
+    "allow_skip": true,
+    "skip_text": "跳過：獲得 10 靈石"
+  },
+  "rules": [
+    "已生成的 3 張卡不因商店卡牌包切換而改變。",
+    "Basic、starter、enemy_only、debug_only 不進一般獎勵。",
+    "如果可選卡不足 3 張，允許少於 3 張，但需在 log 顯示 warning。"
+  ]
+}

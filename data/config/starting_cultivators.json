@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "id": "starting_cultivators",
+  "defaults": {
+    "starting_gold": 99,
+    "starting_max_energy": 3,
+    "starting_draw_count": 5,
+    "max_active_card_packs": 2
+  },
+  "cultivators": [
+    {
+      "id": "metal_cultivator",
+      "name": "Metal Cultivator",
+      "display_element": "metal",
+      "main_element": "metal",
+      "starting_hp": 72,
+      "starting_gold": 99,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "BAS_001", "GLD_001", "GLD_004"],
+      "recommended_card_packs": ["pack_metal", "pack_metal_water", "pack_metal_weapon"]
+    },
+    {
+      "id": "wood_cultivator",
+      "name": "Wood Cultivator",
+      "display_element": "wood",
+      "main_element": "wood",
+      "starting_hp": 74,
+      "starting_gold": 99,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "BAS_001", "WOD_002", "WOD_004"],
+      "recommended_card_packs": ["pack_wood", "pack_wood_fire", "pack_water_wood"]
+    },
+    {
+      "id": "water_cultivator",
+      "name": "Water Cultivator",
+      "display_element": "water",
+      "main_element": "water",
+      "starting_hp": 70,
+      "starting_gold": 99,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "BAS_001", "WAT_001", "WAT_006"],
+      "recommended_card_packs": ["pack_water", "pack_metal_water", "pack_water_wood"]
+    },
+    {
+      "id": "fire_cultivator",
+      "name": "Fire Cultivator",
+      "display_element": "fire",
+      "main_element": "fire",
+      "starting_hp": 68,
+      "starting_gold": 99,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "BAS_001", "FIR_001", "FIR_002"],
+      "recommended_card_packs": ["pack_fire", "pack_wood_fire", "pack_fire_soul"]
+    },
+    {
+      "id": "earth_cultivator",
+      "name": "Earth Cultivator",
+      "display_element": "earth",
+      "main_element": "earth",
+      "starting_hp": 78,
+      "starting_gold": 99,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "BAS_001", "ERT_001", "ERT_003"],
+      "recommended_card_packs": ["pack_earth", "pack_fire_earth", "pack_earth_metal"]
+    },
+    {
+      "id": "soul_cultivator",
+      "name": "Soul Cultivator",
+      "display_element": "soul",
+      "main_element": "soul",
+      "starting_hp": 66,
+      "starting_gold": 99,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "BAS_001", "SOU_001", "SOU_003"],
+      "recommended_card_packs": ["pack_soul", "pack_fire_soul", "pack_water_soul"]
+    },
+    {
+      "id": "weapon_cultivator",
+      "name": "Weapon Cultivator",
+      "display_element": "weapon",
+      "main_element": "weapon",
+      "starting_hp": 70,
+      "starting_gold": 99,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "BAS_001", "WPN_002", "WPN_003"],
+      "recommended_card_packs": ["pack_weapon", "pack_metal_weapon", "pack_wood_weapon"]
+    },
+    {
+      "id": "wanderer_cultivator",
+      "name": "Wanderer Cultivator",
+      "display_element": "neutral",
+      "main_element": "neutral",
+      "starting_hp": 72,
+      "starting_gold": 109,
+      "starting_deck": ["BAS_002", "BAS_002", "BAS_002", "BAS_001", "BAS_001", "BAS_001", "FIR_001", "WOD_002", "WAT_001", "GLD_001"],
+      "recommended_card_packs": ["pack_five_elements", "pack_all_methods"],
+      "max_active_card_packs_bonus": 1
+    }
+  ]
+}

@@ -197,7 +197,7 @@ func _build_ui() -> void:
 	add_child(combat_log)
 
 	var round_panel := _build_round_status_panel()
-	_place_control(round_panel, 22, 214, 112, 540)
+	_place_control(round_panel, 22, 214, 142, 540)
 	add_child(round_panel)
 
 	var enemy_section := _build_enemy_section()
@@ -590,14 +590,14 @@ func _build_state_buttons_anchor() -> Control:
 	_end_turn_button.z_index = 2
 	_state_buttons_anchor.add_child(_end_turn_button)
 
-	_pile_buttons_art = _build_art_texture(BATTLE_UI_PILE_BUTTONS, TextureRect.STRETCH_KEEP_ASPECT_CENTERED)
-	_place_control(_pile_buttons_art, 0, 110, 374, 290)
+	_pile_buttons_art = _build_art_texture(BATTLE_UI_PILE_BUTTONS, TextureRect.STRETCH_SCALE)
+	_place_control(_pile_buttons_art, 0, 95, 374, 265)
 	_pile_buttons_art.modulate = Color(1, 1, 1, 0.88)
 	_pile_buttons_art.visible = _pile_buttons_art.texture != null
 	_state_buttons_anchor.add_child(_pile_buttons_art)
 
 	var row := _build_action_button_row()
-	_place_control(row, 17, 136, 357, 228)
+	_place_control(row, 17, 130, 357, 222)
 	row.z_index = 2
 	_state_buttons_anchor.add_child(row)
 	return _state_buttons_anchor
@@ -619,7 +619,7 @@ func _build_action_button_row() -> Control:
 	# Draw pile count label positioned inside the top-right circular bubble frame
 	var draw_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	draw_label.name = "CountLabel"
-	_place_control(draw_label, 64, 4, 96, 36)
+	_place_control(draw_label, 80, 23, 112, 55)
 	_draw_button.add_child(draw_label)
 	row.add_child(_draw_button)
 
@@ -631,7 +631,7 @@ func _build_action_button_row() -> Control:
 	# Discard pile count label positioned inside the top-right circular bubble frame
 	var discard_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	discard_label.name = "CountLabel"
-	_place_control(discard_label, 56, 0, 88, 32)
+	_place_control(discard_label, 79, 23, 111, 55)
 	_discard_button.add_child(discard_label)
 	row.add_child(_discard_button)
 
@@ -643,7 +643,7 @@ func _build_action_button_row() -> Control:
 	# Exhaust pile count label positioned inside the top-right circular bubble frame
 	var exhaust_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	exhaust_label.name = "CountLabel"
-	_place_control(exhaust_label, 67, 2, 99, 34)
+	_place_control(exhaust_label, 76, 15, 108, 47)
 	_exhaust_button.add_child(exhaust_label)
 	row.add_child(_exhaust_button)
 	return row

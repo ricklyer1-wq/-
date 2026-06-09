@@ -213,7 +213,7 @@ func _build_ui() -> void:
 	add_child(hand_section)
 
 	var player_section := _build_player_section()
-	_place_control(player_section, 10, 1671, 704, 1902)
+	_place_control(player_section, 10, 1588, 704, 1902)
 	add_child(player_section)
 
 	var state_buttons := _build_state_buttons_anchor()
@@ -487,11 +487,33 @@ func _build_player_section() -> Control:
 	section.mouse_filter = Control.MOUSE_FILTER_PASS
 	_player_hud_anchor = section
 
-	# The main panel background frame
+	# Restore character avatar box (Left side)
+	var avatar_box := Control.new()
+	_place_control(avatar_box, 0, 0, 220, 248)
+	avatar_box.clip_contents = true
+	avatar_box.z_index = 2
+	section.add_child(avatar_box)
+
+	_player_avatar_rect = _build_art_texture(
+		BATTLE_UI_PLAYER_AVATAR,
+		TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	)
+	_place_control(_player_avatar_rect, -30, 0, 230, 248)
+	_player_avatar_rect.z_index = 2
+	avatar_box.add_child(_player_avatar_rect)
+
+	# The main panel background frame (Shifted right by 112, aligned bottom at Y=55)
 	_player_hud_frame_rect = _build_art_texture(BATTLE_UI_PANEL_PLAYER_HUD, TextureRect.STRETCH_SCALE)
-	_place_control(_player_hud_frame_rect, 0, 0, 694, 231)
+	_place_control(_player_hud_frame_rect, 112, 55, 692, 248)
 	_player_hud_frame_rect.modulate = Color(1, 1, 1, 1)
 	_player_hud_frame_rect.z_index = 3
+	
+	# Load the shader and assign it as material
+	var hud_shader := load("res://scenes/battle/player_hud.gdshader")
+	if hud_shader:
+		var mat := ShaderMaterial.new()
+		mat.shader = hud_shader
+		_player_hud_frame_rect.material = mat
 	section.add_child(_player_hud_frame_rect)
 
 	# Name label is hidden since it's already written beautifully on the texture
@@ -500,63 +522,57 @@ func _build_player_section() -> Control:
 	_place_control(_player_name_label, 0, 0, 10, 10)
 	_player_name_label.z_index = 4
 	_player_name_label.visible = false
-	section.add_child(_player_name_label)
+	_player_hud_frame_rect.add_child(_player_name_label)
 
 	# Realm Label (e.g. "築基後期") inside the top-right purple status frame
-	var realm_label := _make_battle_info_label(22, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	var realm_label := _make_battle_info_label(18, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	realm_label.text = "築基後期"
-	_place_control(realm_label, 235, 12, 476, 59)
+	_place_control(realm_label, 197, 10, 398, 49)
 	realm_label.z_index = 4
-	section.add_child(realm_label)
-
-	# Load the shader and assign it as material
-	var hud_shader := load("res://scenes/battle/player_hud.gdshader")
-	if hud_shader:
-		var mat := ShaderMaterial.new()
-		mat.shader = hud_shader
-		_player_hud_frame_rect.material = mat
+	_player_hud_frame_rect.add_child(realm_label)
 
 	# HP numeric label
-	_player_hp_value_label = _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_player_hp_value_label = _make_battle_info_label(18, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	_player_hp_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_place_control(_player_hp_value_label, PLAYER_HP_BAR_X_START, 85, PLAYER_HP_BAR_X_START + PLAYER_HP_BAR_WIDTH, 113)
+	_place_control(_player_hp_value_label, 65, 71, 421, 94)
 	_player_hp_value_label.z_index = 5
-	section.add_child(_player_hp_value_label)
+	_player_hud_frame_rect.add_child(_player_hp_value_label)
 
-	# Block numeric label, overlaying on the shield icon (X=524 to 563, Y=75 to 119)
-	_player_block_value_label = _make_battle_info_label(22, UI_SHIELD_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
-	_place_control(_player_block_value_label, 524, 75, 563, 119)
+	# Block numeric label, overlaying on the right of the shield icon (Shield is at X=438 to 471)
+	_player_block_value_label = _make_battle_info_label(20, UI_SHIELD_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
+	_player_block_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_place_control(_player_block_value_label, 476, 63, 536, 100)
 	_player_block_value_label.z_index = 5
-	section.add_child(_player_block_value_label)
+	_player_hud_frame_rect.add_child(_player_block_value_label)
 
 	# Qi / Energy numeric label
-	_player_energy_value_label = _make_battle_info_label(20, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
+	_player_energy_value_label = _make_battle_info_label(18, UI_PRIMARY_TEXT, HORIZONTAL_ALIGNMENT_CENTER)
 	_player_energy_value_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_place_control(_player_energy_value_label, PLAYER_ENERGY_BAR_X_START, 136, PLAYER_ENERGY_BAR_X_START + PLAYER_ENERGY_BAR_WIDTH, 163)
+	_place_control(_player_energy_value_label, 46, 114, 544, 136)
 	_player_energy_value_label.z_index = 5
-	section.add_child(_player_energy_value_label)
+	_player_hud_frame_rect.add_child(_player_energy_value_label)
 
 	# Player status label (unused but reference kept)
 	_player_status_label = _make_battle_info_label(20, UI_SECONDARY_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
 	_place_control(_player_status_label, 0, 0, 10, 10)
 	_player_status_label.z_index = 4
 	_player_status_label.visible = false
-	section.add_child(_player_status_label)
+	_player_hud_frame_rect.add_child(_player_status_label)
 
 	# Player status icons - placed neatly in the empty area below the Qi bar
 	_player_status_icons = HBoxContainer.new()
 	_player_status_icons.alignment = BoxContainer.ALIGNMENT_BEGIN
 	_player_status_icons.add_theme_constant_override("separation", 18)
 	_player_status_icons.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	_place_control(_player_status_icons, 55, 172, 651, 212)
+	_place_control(_player_status_icons, 46, 142, 544, 182)
 	_player_status_icons.z_index = 4
-	section.add_child(_player_status_icons)
+	_player_hud_frame_rect.add_child(_player_status_icons)
 
 	# Unused energy label reference
 	_energy_label = _make_battle_info_label(20, UI_ENERGY_TEXT, HORIZONTAL_ALIGNMENT_LEFT)
-	_place_control(_energy_label, 190, 212, 650, 230)
+	_place_control(_energy_label, 190, 142, 544, 182)
 	_energy_label.visible = false
-	section.add_child(_energy_label)
+	_player_hud_frame_rect.add_child(_energy_label)
 
 	return section
 
